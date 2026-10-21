@@ -1,0 +1,2621 @@
+{
+  "features": {
+    "Year": {
+      "name": "出廠年份",
+      "desc": "車輛出廠年份 (1990 ~ 2017)",
+      "unit": "年",
+      "min": 1990,
+      "max": 2017,
+      "mean": 2010.36,
+      "median": 2015.0,
+      "step": 1,
+      "default": 2015
+    },
+    "Engine HP": {
+      "name": "引擎馬力",
+      "desc": "引擎最大輸出馬力 (Horsepower)",
+      "unit": "hp",
+      "min": 55,
+      "max": 1000,
+      "mean": 249.48,
+      "median": 227.0,
+      "step": 5,
+      "default": 250
+    },
+    "Engine Cylinders": {
+      "name": "汽缸數量",
+      "desc": "發動機汽缸數",
+      "unit": "缸",
+      "min": 0,
+      "max": 16,
+      "mean": 5.65,
+      "median": 6.0,
+      "step": 1,
+      "default": 4
+    },
+    "Number of Doors": {
+      "name": "車門數量",
+      "desc": "全車車門數 (2~4門)",
+      "unit": "門",
+      "min": 2,
+      "max": 4,
+      "mean": 3.43,
+      "median": 4.0,
+      "step": 1,
+      "default": 4
+    },
+    "highway MPG": {
+      "name": "高速公路油耗",
+      "desc": "高速行駛每加侖英里數 (Highway MPG)",
+      "unit": "mpg",
+      "min": 12,
+      "max": 60,
+      "mean": 26.29,
+      "median": 26.0,
+      "step": 1,
+      "default": 28
+    },
+    "city mpg": {
+      "name": "市區道路油耗",
+      "desc": "市區行駛每加侖英里數 (City MPG)",
+      "unit": "mpg",
+      "min": 7,
+      "max": 50,
+      "mean": 19.33,
+      "median": 18.0,
+      "step": 1,
+      "default": 20
+    },
+    "Popularity": {
+      "name": "社群熱門指數",
+      "desc": "車廠社群關注度指數",
+      "unit": "分",
+      "min": 0,
+      "max": 5657,
+      "mean": 1553.41,
+      "median": 1385.0,
+      "step": 50,
+      "default": 1500
+    },
+    "is_luxury": {
+      "name": "豪華車款標籤",
+      "desc": "是否屬於 Luxury 級距 (0: 否, 1: 是)",
+      "unit": "0/1",
+      "min": 0,
+      "max": 1,
+      "mean": 0.28,
+      "median": 0.0,
+      "step": 1,
+      "default": 0
+    },
+    "is_performance": {
+      "name": "性能車款標籤",
+      "desc": "是否屬於 Performance 級距 (0: 否, 1: 是)",
+      "unit": "0/1",
+      "min": 0,
+      "max": 1,
+      "mean": 0.29,
+      "median": 0.0,
+      "step": 1,
+      "default": 0
+    },
+    "is_automatic": {
+      "name": "自排變速箱",
+      "desc": "變速箱是否為自排 (0: 手排, 1: 自排)",
+      "unit": "0/1",
+      "min": 0,
+      "max": 1,
+      "mean": 0.7,
+      "median": 1.0,
+      "step": 1,
+      "default": 1
+    },
+    "is_awd": {
+      "name": "四輪/全輪驅動",
+      "desc": "驅動方式是否為全輪驅動 (0: 否, 1: 是)",
+      "unit": "0/1",
+      "min": 0,
+      "max": 1,
+      "mean": 0.32,
+      "median": 0.0,
+      "step": 1,
+      "default": 0
+    },
+    "is_large": {
+      "name": "大型車級距",
+      "desc": "車身尺碼是否為大型車 Large (0: 否, 1: 是)",
+      "unit": "0/1",
+      "min": 0,
+      "max": 1,
+      "mean": 0.23,
+      "median": 0.0,
+      "step": 1,
+      "default": 0
+    }
+  },
+  "vif": [
+    {
+      "feature": "highway MPG",
+      "vif": 9.791
+    },
+    {
+      "feature": "city mpg",
+      "vif": 7.515
+    },
+    {
+      "feature": "Engine HP",
+      "vif": 6.631
+    },
+    {
+      "feature": "Engine Cylinders",
+      "vif": 5.039
+    },
+    {
+      "feature": "Year",
+      "vif": 2.475
+    },
+    {
+      "feature": "is_performance",
+      "vif": 1.908
+    },
+    {
+      "feature": "is_automatic",
+      "vif": 1.489
+    },
+    {
+      "feature": "Number of Doors",
+      "vif": 1.435
+    },
+    {
+      "feature": "is_large",
+      "vif": 1.385
+    },
+    {
+      "feature": "is_luxury",
+      "vif": 1.367
+    },
+    {
+      "feature": "is_awd",
+      "vif": 1.282
+    },
+    {
+      "feature": "Popularity",
+      "vif": 1.061
+    }
+  ],
+  "corr": {
+    "columns": [
+      "Year",
+      "Engine HP",
+      "Engine Cylinders",
+      "Number of Doors",
+      "highway MPG",
+      "city mpg",
+      "Popularity",
+      "is_luxury",
+      "is_performance",
+      "is_automatic",
+      "is_awd",
+      "is_large",
+      "MSRP"
+    ],
+    "values": [
+      [
+        1.0,
+        0.353,
+        -0.034,
+        0.262,
+        0.303,
+        0.232,
+        0.074,
+        0.089,
+        0.172,
+        0.27,
+        0.14,
+        0.035,
+        0.227
+      ],
+      [
+        0.353,
+        1.0,
+        0.78,
+        -0.102,
+        -0.453,
+        -0.466,
+        0.037,
+        0.354,
+        0.546,
+        0.128,
+        0.219,
+        0.344,
+        0.662
+      ],
+      [
+        -0.034,
+        0.78,
+        1.0,
+        -0.138,
+        -0.675,
+        -0.638,
+        0.045,
+        0.175,
+        0.286,
+        0.159,
+        0.152,
+        0.461,
+        0.544
+      ],
+      [
+        0.262,
+        -0.102,
+        -0.138,
+        1.0,
+        0.13,
+        0.137,
+        -0.05,
+        0.04,
+        -0.27,
+        0.421,
+        0.165,
+        0.115,
+        -0.127
+      ],
+      [
+        0.303,
+        -0.453,
+        -0.675,
+        0.13,
+        1.0,
+        0.924,
+        -0.036,
+        -0.055,
+        -0.082,
+        -0.114,
+        -0.275,
+        -0.355,
+        -0.218
+      ],
+      [
+        0.232,
+        -0.466,
+        -0.638,
+        0.137,
+        0.924,
+        1.0,
+        -0.011,
+        -0.1,
+        -0.161,
+        -0.092,
+        -0.205,
+        -0.318,
+        -0.225
+      ],
+      [
+        0.074,
+        0.037,
+        0.045,
+        -0.05,
+        -0.036,
+        -0.011,
+        1.0,
+        -0.134,
+        -0.049,
+        -0.025,
+        0.023,
+        0.126,
+        -0.049
+      ],
+      [
+        0.089,
+        0.354,
+        0.175,
+        0.04,
+        -0.055,
+        -0.1,
+        -0.134,
+        1.0,
+        0.326,
+        0.13,
+        0.178,
+        0.037,
+        0.235
+      ],
+      [
+        0.172,
+        0.546,
+        0.286,
+        -0.27,
+        -0.082,
+        -0.161,
+        -0.049,
+        0.326,
+        1.0,
+        -0.183,
+        -0.019,
+        -0.008,
+        0.359
+      ],
+      [
+        0.27,
+        0.128,
+        0.159,
+        0.421,
+        -0.114,
+        -0.092,
+        -0.025,
+        0.13,
+        -0.183,
+        1.0,
+        0.153,
+        0.235,
+        0.014
+      ],
+      [
+        0.14,
+        0.219,
+        0.152,
+        0.165,
+        -0.275,
+        -0.205,
+        0.023,
+        0.178,
+        -0.019,
+        0.153,
+        1.0,
+        0.126,
+        0.104
+      ],
+      [
+        0.035,
+        0.344,
+        0.461,
+        0.115,
+        -0.355,
+        -0.318,
+        0.126,
+        0.037,
+        -0.008,
+        0.235,
+        0.126,
+        1.0,
+        0.119
+      ],
+      [
+        0.227,
+        0.662,
+        0.544,
+        -0.127,
+        -0.218,
+        -0.225,
+        -0.049,
+        0.235,
+        0.359,
+        0.014,
+        0.104,
+        0.119,
+        1.0
+      ]
+    ]
+  },
+  "data": {
+    "0": {
+      "meta": {
+        "best_k": 8,
+        "best_rmse": "$48,466.09",
+        "best_r2": "0.4324",
+        "best_features": "is_large, Popularity, Engine HP, Number of Doors, is_automatic, highway MPG, is_performance, Engine Cylinders",
+        "k1_rmse": "$50,549.91",
+        "k1_r2": "0.3825",
+        "k1_feature": "Engine HP",
+        "k_full_rmse": "$48,496.59",
+        "k_full_r2": "0.4317",
+        "total_features": 12
+      },
+      "models": {
+        "single_feature": {
+          "label": "單特徵基準 (k=1: Engine HP)",
+          "intercept": -50388.56,
+          "coef": {
+            "Engine HP": 364.6997
+          },
+          "k": 1
+        },
+        "best_performance": {
+          "label": "最佳精簡模型 (k=8: Exhaustive Search)",
+          "intercept": -113182.47,
+          "coef": {
+            "is_large": -18387.1917,
+            "Popularity": -2.69,
+            "Engine HP": 351.5441,
+            "Number of Doors": -2474.8392,
+            "is_automatic": -7495.9819,
+            "highway MPG": 1606.955,
+            "is_performance": -9789.6337,
+            "Engine Cylinders": 8646.6518
+          },
+          "k": 8
+        },
+        "standard_5_feature": {
+          "label": "5 特徵折衷模型 (k=5)",
+          "intercept": -123617.0,
+          "coef": {
+            "is_large": -19810.7336,
+            "Popularity": -2.3232,
+            "Engine HP": 317.8335,
+            "highway MPG": 1528.5074,
+            "Engine Cylinders": 9375.4451
+          },
+          "k": 5
+        },
+        "full_feature": {
+          "label": "全特徵模型 (全部 12 項特徵)",
+          "intercept": -217783.7,
+          "coef": {
+            "Year": 53.4006,
+            "Engine HP": 346.4203,
+            "Engine Cylinders": 8842.2179,
+            "Number of Doors": -2630.3205,
+            "highway MPG": 990.068,
+            "city mpg": 711.1173,
+            "Popularity": -2.7499,
+            "is_luxury": 495.6683,
+            "is_performance": -8899.8835,
+            "is_automatic": -7778.4138,
+            "is_awd": 1061.5641,
+            "is_large": -18397.0248
+          },
+          "k": 12
+        }
+      },
+      "algorithms": {
+        "Lasso (L1 Ranking)": {
+          "k": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "rmse": [
+            50549.91,
+            50418.36,
+            49791.5,
+            48752.64,
+            48799.22,
+            48624.47,
+            48637.03,
+            48521.23,
+            48506.42,
+            48505.9,
+            48500.8,
+            48496.59
+          ],
+          "r2": [
+            0.3825,
+            0.3857,
+            0.4009,
+            0.4257,
+            0.4246,
+            0.4287,
+            0.4284,
+            0.4311,
+            0.4314,
+            0.4315,
+            0.4316,
+            0.4317
+          ],
+          "features": [
+            [
+              "Engine HP"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_large"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_large",
+              "highway MPG"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_large",
+              "highway MPG",
+              "city mpg"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_large",
+              "highway MPG",
+              "city mpg",
+              "Popularity"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_large",
+              "highway MPG",
+              "city mpg",
+              "Popularity",
+              "is_performance"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_large",
+              "highway MPG",
+              "city mpg",
+              "Popularity",
+              "is_performance",
+              "is_automatic"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_large",
+              "highway MPG",
+              "city mpg",
+              "Popularity",
+              "is_performance",
+              "is_automatic",
+              "Number of Doors"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_large",
+              "highway MPG",
+              "city mpg",
+              "Popularity",
+              "is_performance",
+              "is_automatic",
+              "Number of Doors",
+              "is_awd"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_large",
+              "highway MPG",
+              "city mpg",
+              "Popularity",
+              "is_performance",
+              "is_automatic",
+              "Number of Doors",
+              "is_awd",
+              "Year"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_large",
+              "highway MPG",
+              "city mpg",
+              "Popularity",
+              "is_performance",
+              "is_automatic",
+              "Number of Doors",
+              "is_awd",
+              "Year",
+              "is_luxury"
+            ]
+          ]
+        },
+        "Forward SFS": {
+          "k": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "rmse": [
+            50549.91,
+            50187.32,
+            49791.5,
+            48752.64,
+            48583.78,
+            48481.46,
+            48481.12,
+            48466.09,
+            48506.42,
+            48505.9,
+            48503.87,
+            48496.59
+          ],
+          "r2": [
+            0.3825,
+            0.3914,
+            0.4009,
+            0.4257,
+            0.4296,
+            0.432,
+            0.432,
+            0.4324,
+            0.4314,
+            0.4315,
+            0.4315,
+            0.4317
+          ],
+          "features": [
+            [
+              "Engine HP"
+            ],
+            [
+              "Engine HP",
+              "is_large"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_large"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "highway MPG",
+              "is_large"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "highway MPG",
+              "Popularity",
+              "is_large"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "highway MPG",
+              "Popularity",
+              "is_automatic",
+              "is_large"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "highway MPG",
+              "Popularity",
+              "is_performance",
+              "is_automatic",
+              "is_large"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "Number of Doors",
+              "highway MPG",
+              "Popularity",
+              "is_performance",
+              "is_automatic",
+              "is_large"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "Number of Doors",
+              "highway MPG",
+              "city mpg",
+              "Popularity",
+              "is_performance",
+              "is_automatic",
+              "is_large"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "Number of Doors",
+              "highway MPG",
+              "city mpg",
+              "Popularity",
+              "is_performance",
+              "is_automatic",
+              "is_awd",
+              "is_large"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "Number of Doors",
+              "highway MPG",
+              "city mpg",
+              "Popularity",
+              "is_luxury",
+              "is_performance",
+              "is_automatic",
+              "is_awd",
+              "is_large"
+            ],
+            [
+              "Year",
+              "Engine HP",
+              "Engine Cylinders",
+              "Number of Doors",
+              "highway MPG",
+              "city mpg",
+              "Popularity",
+              "is_luxury",
+              "is_performance",
+              "is_automatic",
+              "is_awd",
+              "is_large"
+            ]
+          ]
+        },
+        "RFE": {
+          "k": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "rmse": [
+            50549.91,
+            50418.36,
+            49328.05,
+            48752.64,
+            48799.22,
+            48624.47,
+            48526.65,
+            48521.23,
+            48506.42,
+            48505.9,
+            48500.8,
+            48496.59
+          ],
+          "r2": [
+            0.3825,
+            0.3857,
+            0.412,
+            0.4257,
+            0.4246,
+            0.4287,
+            0.431,
+            0.4311,
+            0.4314,
+            0.4315,
+            0.4316,
+            0.4317
+          ],
+          "features": [
+            [
+              "Engine HP"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "highway MPG"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "highway MPG",
+              "is_large"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "highway MPG",
+              "city mpg",
+              "is_large"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "highway MPG",
+              "city mpg",
+              "Popularity",
+              "is_large"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "highway MPG",
+              "city mpg",
+              "Popularity",
+              "is_automatic",
+              "is_large"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "highway MPG",
+              "city mpg",
+              "Popularity",
+              "is_performance",
+              "is_automatic",
+              "is_large"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "Number of Doors",
+              "highway MPG",
+              "city mpg",
+              "Popularity",
+              "is_performance",
+              "is_automatic",
+              "is_large"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "Number of Doors",
+              "highway MPG",
+              "city mpg",
+              "Popularity",
+              "is_performance",
+              "is_automatic",
+              "is_awd",
+              "is_large"
+            ],
+            [
+              "Year",
+              "Engine HP",
+              "Engine Cylinders",
+              "Number of Doors",
+              "highway MPG",
+              "city mpg",
+              "Popularity",
+              "is_performance",
+              "is_automatic",
+              "is_awd",
+              "is_large"
+            ],
+            [
+              "Year",
+              "Engine HP",
+              "Engine Cylinders",
+              "Number of Doors",
+              "highway MPG",
+              "city mpg",
+              "Popularity",
+              "is_luxury",
+              "is_performance",
+              "is_automatic",
+              "is_awd",
+              "is_large"
+            ]
+          ]
+        },
+        "ElasticNet Ranking": {
+          "k": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "rmse": [
+            50549.91,
+            50418.36,
+            50410.49,
+            50366.15,
+            50355.28,
+            49639.5,
+            49388.32,
+            49278.79,
+            49285.74,
+            48789.21,
+            48588.05,
+            48496.59
+          ],
+          "r2": [
+            0.3825,
+            0.3857,
+            0.3859,
+            0.387,
+            0.3873,
+            0.4046,
+            0.4106,
+            0.4132,
+            0.413,
+            0.4248,
+            0.4295,
+            0.4317
+          ],
+          "features": [
+            [
+              "Engine HP"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance",
+              "Year"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance",
+              "Year",
+              "is_luxury"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance",
+              "Year",
+              "is_luxury",
+              "city mpg"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance",
+              "Year",
+              "is_luxury",
+              "city mpg",
+              "highway MPG"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance",
+              "Year",
+              "is_luxury",
+              "city mpg",
+              "highway MPG",
+              "Number of Doors"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance",
+              "Year",
+              "is_luxury",
+              "city mpg",
+              "highway MPG",
+              "Number of Doors",
+              "is_awd"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance",
+              "Year",
+              "is_luxury",
+              "city mpg",
+              "highway MPG",
+              "Number of Doors",
+              "is_awd",
+              "is_large"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance",
+              "Year",
+              "is_luxury",
+              "city mpg",
+              "highway MPG",
+              "Number of Doors",
+              "is_awd",
+              "is_large",
+              "Popularity"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance",
+              "Year",
+              "is_luxury",
+              "city mpg",
+              "highway MPG",
+              "Number of Doors",
+              "is_awd",
+              "is_large",
+              "Popularity",
+              "is_automatic"
+            ]
+          ]
+        },
+        "Exhaustive Search": {
+          "k": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "rmse": [
+            50549.91,
+            50187.32,
+            49328.05,
+            48752.64,
+            48583.78,
+            48481.46,
+            48481.12,
+            48466.09,
+            48506.42,
+            48505.9,
+            48503.87,
+            48496.59
+          ],
+          "r2": [
+            0.3825,
+            0.3914,
+            0.412,
+            0.4257,
+            0.4296,
+            0.432,
+            0.432,
+            0.4324,
+            0.4314,
+            0.4315,
+            0.4315,
+            0.4317
+          ],
+          "features": [
+            [
+              "Engine HP"
+            ],
+            [
+              "Engine HP",
+              "is_large"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "highway MPG"
+            ],
+            [
+              "is_large",
+              "Engine HP",
+              "highway MPG",
+              "Engine Cylinders"
+            ],
+            [
+              "is_large",
+              "Popularity",
+              "Engine HP",
+              "highway MPG",
+              "Engine Cylinders"
+            ],
+            [
+              "is_large",
+              "Popularity",
+              "Engine HP",
+              "is_automatic",
+              "highway MPG",
+              "Engine Cylinders"
+            ],
+            [
+              "is_large",
+              "Popularity",
+              "Engine HP",
+              "is_automatic",
+              "highway MPG",
+              "is_performance",
+              "Engine Cylinders"
+            ],
+            [
+              "is_large",
+              "Popularity",
+              "Engine HP",
+              "Number of Doors",
+              "is_automatic",
+              "highway MPG",
+              "is_performance",
+              "Engine Cylinders"
+            ],
+            [
+              "city mpg",
+              "is_large",
+              "Popularity",
+              "Engine HP",
+              "Number of Doors",
+              "is_automatic",
+              "highway MPG",
+              "is_performance",
+              "Engine Cylinders"
+            ],
+            [
+              "city mpg",
+              "is_large",
+              "Popularity",
+              "Engine HP",
+              "Number of Doors",
+              "is_automatic",
+              "is_awd",
+              "highway MPG",
+              "is_performance",
+              "Engine Cylinders"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "Number of Doors",
+              "highway MPG",
+              "city mpg",
+              "Popularity",
+              "is_luxury",
+              "is_performance",
+              "is_automatic",
+              "is_awd",
+              "is_large"
+            ],
+            [
+              "Year",
+              "Engine HP",
+              "Engine Cylinders",
+              "Number of Doors",
+              "highway MPG",
+              "city mpg",
+              "Popularity",
+              "is_luxury",
+              "is_performance",
+              "is_automatic",
+              "is_awd",
+              "is_large"
+            ]
+          ]
+        },
+        "SelectKBest (Filter)": {
+          "k": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "rmse": [
+            50549.91,
+            50418.36,
+            50410.49,
+            49603.25,
+            49596.03,
+            49639.5,
+            49388.32,
+            49278.79,
+            48785.43,
+            48789.21,
+            48588.05,
+            48496.59
+          ],
+          "r2": [
+            0.3825,
+            0.3857,
+            0.3859,
+            0.4054,
+            0.4056,
+            0.4046,
+            0.4106,
+            0.4132,
+            0.4249,
+            0.4248,
+            0.4295,
+            0.4317
+          ],
+          "features": [
+            [
+              "Engine HP"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance",
+              "city mpg"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance",
+              "city mpg",
+              "is_luxury"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance",
+              "city mpg",
+              "is_luxury",
+              "Year"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance",
+              "city mpg",
+              "is_luxury",
+              "Year",
+              "highway MPG"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance",
+              "city mpg",
+              "is_luxury",
+              "Year",
+              "highway MPG",
+              "Number of Doors"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance",
+              "city mpg",
+              "is_luxury",
+              "Year",
+              "highway MPG",
+              "Number of Doors",
+              "is_large"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance",
+              "city mpg",
+              "is_luxury",
+              "Year",
+              "highway MPG",
+              "Number of Doors",
+              "is_large",
+              "is_awd"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance",
+              "city mpg",
+              "is_luxury",
+              "Year",
+              "highway MPG",
+              "Number of Doors",
+              "is_large",
+              "is_awd",
+              "Popularity"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance",
+              "city mpg",
+              "is_luxury",
+              "Year",
+              "highway MPG",
+              "Number of Doors",
+              "is_large",
+              "is_awd",
+              "Popularity",
+              "is_automatic"
+            ]
+          ]
+        },
+        "VIF Backward Elimination": {
+          "k": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "rmse": [
+            63770.11,
+            61839.61,
+            60709.99,
+            60644.78,
+            60699.99,
+            59650.98,
+            58661.25,
+            58564.68,
+            57500.98,
+            49947.98,
+            48641.8,
+            48496.59
+          ],
+          "r2": [
+            0.0173,
+            0.0759,
+            0.1094,
+            0.1113,
+            0.1097,
+            0.1402,
+            0.1685,
+            0.1712,
+            0.201,
+            0.3971,
+            0.4283,
+            0.4317
+          ],
+          "features": [
+            [
+              "is_large"
+            ],
+            [
+              "is_luxury",
+              "is_large"
+            ],
+            [
+              "Year",
+              "is_luxury",
+              "is_large"
+            ],
+            [
+              "Year",
+              "Popularity",
+              "is_luxury",
+              "is_large"
+            ],
+            [
+              "Year",
+              "Popularity",
+              "is_luxury",
+              "is_awd",
+              "is_large"
+            ],
+            [
+              "Year",
+              "Number of Doors",
+              "Popularity",
+              "is_luxury",
+              "is_awd",
+              "is_large"
+            ],
+            [
+              "Year",
+              "Number of Doors",
+              "city mpg",
+              "Popularity",
+              "is_luxury",
+              "is_awd",
+              "is_large"
+            ],
+            [
+              "Year",
+              "Number of Doors",
+              "city mpg",
+              "Popularity",
+              "is_luxury",
+              "is_automatic",
+              "is_awd",
+              "is_large"
+            ],
+            [
+              "Year",
+              "Number of Doors",
+              "city mpg",
+              "Popularity",
+              "is_luxury",
+              "is_performance",
+              "is_automatic",
+              "is_awd",
+              "is_large"
+            ],
+            [
+              "Year",
+              "Engine Cylinders",
+              "Number of Doors",
+              "city mpg",
+              "Popularity",
+              "is_luxury",
+              "is_performance",
+              "is_automatic",
+              "is_awd",
+              "is_large"
+            ],
+            [
+              "Year",
+              "Engine HP",
+              "Engine Cylinders",
+              "Number of Doors",
+              "city mpg",
+              "Popularity",
+              "is_luxury",
+              "is_performance",
+              "is_automatic",
+              "is_awd",
+              "is_large"
+            ],
+            [
+              "Year",
+              "Engine HP",
+              "Engine Cylinders",
+              "Number of Doors",
+              "highway MPG",
+              "city mpg",
+              "Popularity",
+              "is_luxury",
+              "is_performance",
+              "is_automatic",
+              "is_awd",
+              "is_large"
+            ]
+          ]
+        }
+      }
+    },
+    "42": {
+      "meta": {
+        "best_k": 11,
+        "best_rmse": "$30,349.20",
+        "best_r2": "0.5916",
+        "best_features": "Year, Engine HP, Engine Cylinders, Number of Doors, city mpg, Popularity, is_luxury, is_performance, is_automatic, is_awd, is_large",
+        "k1_rmse": "$32,081.12",
+        "k1_r2": "0.5436",
+        "k1_feature": "Engine HP",
+        "k_full_rmse": "$30,414.25",
+        "k_full_r2": "0.5898",
+        "total_features": 12
+      },
+      "models": {
+        "single_feature": {
+          "label": "單特徵基準 (k=1: Engine HP)",
+          "intercept": -53027.12,
+          "coef": {
+            "Engine HP": 376.579
+          },
+          "k": 1
+        },
+        "best_performance": {
+          "label": "最佳精簡模型 (k=11: VIF Backward Elimination)",
+          "intercept": -611959.87,
+          "coef": {
+            "Year": 254.577,
+            "Engine HP": 336.5738,
+            "Engine Cylinders": 9664.7207,
+            "Number of Doors": -2573.4583,
+            "city mpg": 1496.9392,
+            "Popularity": -3.0779,
+            "is_luxury": 1213.8408,
+            "is_performance": -7394.6644,
+            "is_automatic": -8784.4893,
+            "is_awd": -1368.8744,
+            "is_large": -19049.2329
+          },
+          "k": 11
+        },
+        "standard_5_feature": {
+          "label": "5 特徵折衷模型 (k=5)",
+          "intercept": -135532.5,
+          "coef": {
+            "Engine HP": 316.2241,
+            "Engine Cylinders": 10867.915,
+            "highway MPG": 1702.0615,
+            "Popularity": -2.523,
+            "is_large": -20287.3377
+          },
+          "k": 5
+        },
+        "full_feature": {
+          "label": "全特徵模型 (全部 12 項特徵)",
+          "intercept": -215261.78,
+          "coef": {
+            "Year": 46.4579,
+            "Engine HP": 345.0557,
+            "Engine Cylinders": 10281.4938,
+            "Number of Doors": -2679.9206,
+            "highway MPG": 1401.8328,
+            "city mpg": 403.2254,
+            "Popularity": -2.9608,
+            "is_luxury": -20.8156,
+            "is_performance": -8868.9289,
+            "is_automatic": -7952.8759,
+            "is_awd": 812.6854,
+            "is_large": -18761.9043
+          },
+          "k": 12
+        }
+      },
+      "algorithms": {
+        "Lasso (L1 Ranking)": {
+          "k": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "rmse": [
+            32081.12,
+            32177.87,
+            31436.38,
+            30774.09,
+            30634.49,
+            30621.82,
+            30505.87,
+            30435.57,
+            30429.79,
+            30419.63,
+            30413.74,
+            30414.25
+          ],
+          "r2": [
+            0.5436,
+            0.5409,
+            0.5618,
+            0.58,
+            0.5838,
+            0.5842,
+            0.5873,
+            0.5892,
+            0.5894,
+            0.5897,
+            0.5898,
+            0.5898
+          ],
+          "features": [
+            [
+              "Engine HP"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "highway MPG"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "highway MPG",
+              "is_large"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "highway MPG",
+              "is_large",
+              "Popularity"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "highway MPG",
+              "is_large",
+              "Popularity",
+              "is_performance"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "highway MPG",
+              "is_large",
+              "Popularity",
+              "is_performance",
+              "is_automatic"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "highway MPG",
+              "is_large",
+              "Popularity",
+              "is_performance",
+              "is_automatic",
+              "city mpg"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "highway MPG",
+              "is_large",
+              "Popularity",
+              "is_performance",
+              "is_automatic",
+              "city mpg",
+              "Number of Doors"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "highway MPG",
+              "is_large",
+              "Popularity",
+              "is_performance",
+              "is_automatic",
+              "city mpg",
+              "Number of Doors",
+              "Year"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "highway MPG",
+              "is_large",
+              "Popularity",
+              "is_performance",
+              "is_automatic",
+              "city mpg",
+              "Number of Doors",
+              "Year",
+              "is_awd"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "highway MPG",
+              "is_large",
+              "Popularity",
+              "is_performance",
+              "is_automatic",
+              "city mpg",
+              "Number of Doors",
+              "Year",
+              "is_awd",
+              "is_luxury"
+            ]
+          ]
+        },
+        "Forward SFS": {
+          "k": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "rmse": [
+            32081.12,
+            31431.94,
+            31380.51,
+            30774.09,
+            30634.49,
+            30552.13,
+            30505.87,
+            30499.32,
+            30429.79,
+            30419.63,
+            30416.53,
+            30414.25
+          ],
+          "r2": [
+            0.5436,
+            0.5619,
+            0.5633,
+            0.58,
+            0.5838,
+            0.5861,
+            0.5873,
+            0.5875,
+            0.5894,
+            0.5897,
+            0.5897,
+            0.5898
+          ],
+          "features": [
+            [
+              "Engine HP"
+            ],
+            [
+              "Engine HP",
+              "is_large"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_large"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "highway MPG",
+              "is_large"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "highway MPG",
+              "Popularity",
+              "is_large"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "highway MPG",
+              "Popularity",
+              "is_automatic",
+              "is_large"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "highway MPG",
+              "Popularity",
+              "is_performance",
+              "is_automatic",
+              "is_large"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "Number of Doors",
+              "highway MPG",
+              "Popularity",
+              "is_performance",
+              "is_automatic",
+              "is_large"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "Number of Doors",
+              "highway MPG",
+              "city mpg",
+              "Popularity",
+              "is_performance",
+              "is_automatic",
+              "is_large"
+            ],
+            [
+              "Year",
+              "Engine HP",
+              "Engine Cylinders",
+              "Number of Doors",
+              "highway MPG",
+              "city mpg",
+              "Popularity",
+              "is_performance",
+              "is_automatic",
+              "is_large"
+            ],
+            [
+              "Year",
+              "Engine HP",
+              "Engine Cylinders",
+              "Number of Doors",
+              "highway MPG",
+              "city mpg",
+              "Popularity",
+              "is_luxury",
+              "is_performance",
+              "is_automatic",
+              "is_large"
+            ],
+            [
+              "Year",
+              "Engine HP",
+              "Engine Cylinders",
+              "Number of Doors",
+              "highway MPG",
+              "city mpg",
+              "Popularity",
+              "is_luxury",
+              "is_performance",
+              "is_automatic",
+              "is_awd",
+              "is_large"
+            ]
+          ]
+        },
+        "RFE": {
+          "k": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "rmse": [
+            32081.12,
+            32177.87,
+            31436.38,
+            30774.09,
+            30634.49,
+            30552.13,
+            30505.87,
+            30435.57,
+            30429.79,
+            30421.95,
+            30413.74,
+            30414.25
+          ],
+          "r2": [
+            0.5436,
+            0.5409,
+            0.5618,
+            0.58,
+            0.5838,
+            0.5861,
+            0.5873,
+            0.5892,
+            0.5894,
+            0.5896,
+            0.5898,
+            0.5898
+          ],
+          "features": [
+            [
+              "Engine HP"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "highway MPG"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "highway MPG",
+              "is_large"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "highway MPG",
+              "Popularity",
+              "is_large"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "highway MPG",
+              "Popularity",
+              "is_automatic",
+              "is_large"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "highway MPG",
+              "Popularity",
+              "is_performance",
+              "is_automatic",
+              "is_large"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "highway MPG",
+              "city mpg",
+              "Popularity",
+              "is_performance",
+              "is_automatic",
+              "is_large"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "Number of Doors",
+              "highway MPG",
+              "city mpg",
+              "Popularity",
+              "is_performance",
+              "is_automatic",
+              "is_large"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "Number of Doors",
+              "highway MPG",
+              "city mpg",
+              "Popularity",
+              "is_performance",
+              "is_automatic",
+              "is_awd",
+              "is_large"
+            ],
+            [
+              "Year",
+              "Engine HP",
+              "Engine Cylinders",
+              "Number of Doors",
+              "highway MPG",
+              "city mpg",
+              "Popularity",
+              "is_performance",
+              "is_automatic",
+              "is_awd",
+              "is_large"
+            ],
+            [
+              "Year",
+              "Engine HP",
+              "Engine Cylinders",
+              "Number of Doors",
+              "highway MPG",
+              "city mpg",
+              "Popularity",
+              "is_luxury",
+              "is_performance",
+              "is_automatic",
+              "is_awd",
+              "is_large"
+            ]
+          ]
+        },
+        "ElasticNet Ranking": {
+          "k": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "rmse": [
+            32081.12,
+            32177.87,
+            32168.28,
+            32162.57,
+            32082.7,
+            31416.91,
+            31464.54,
+            31324.46,
+            30713.11,
+            30710.89,
+            30545.03,
+            30414.25
+          ],
+          "r2": [
+            0.5436,
+            0.5409,
+            0.5411,
+            0.5413,
+            0.5436,
+            0.5623,
+            0.561,
+            0.5649,
+            0.5817,
+            0.5818,
+            0.5863,
+            0.5898
+          ],
+          "features": [
+            [
+              "Engine HP"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance",
+              "is_luxury"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance",
+              "is_luxury",
+              "Year"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance",
+              "is_luxury",
+              "Year",
+              "city mpg"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance",
+              "is_luxury",
+              "Year",
+              "city mpg",
+              "highway MPG"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance",
+              "is_luxury",
+              "Year",
+              "city mpg",
+              "highway MPG",
+              "Number of Doors"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance",
+              "is_luxury",
+              "Year",
+              "city mpg",
+              "highway MPG",
+              "Number of Doors",
+              "is_large"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance",
+              "is_luxury",
+              "Year",
+              "city mpg",
+              "highway MPG",
+              "Number of Doors",
+              "is_large",
+              "is_awd"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance",
+              "is_luxury",
+              "Year",
+              "city mpg",
+              "highway MPG",
+              "Number of Doors",
+              "is_large",
+              "is_awd",
+              "Popularity"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance",
+              "is_luxury",
+              "Year",
+              "city mpg",
+              "highway MPG",
+              "Number of Doors",
+              "is_large",
+              "is_awd",
+              "Popularity",
+              "is_automatic"
+            ]
+          ]
+        },
+        "Exhaustive Search": {
+          "k": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "rmse": [
+            32081.12,
+            31431.94,
+            31436.38,
+            30774.09,
+            30634.49,
+            30552.13,
+            30505.87,
+            30499.32,
+            30429.79,
+            30419.63,
+            30416.53,
+            30414.25
+          ],
+          "r2": [
+            0.5436,
+            0.5619,
+            0.5618,
+            0.58,
+            0.5838,
+            0.5861,
+            0.5873,
+            0.5875,
+            0.5894,
+            0.5897,
+            0.5897,
+            0.5898
+          ],
+          "features": [
+            [
+              "Engine HP"
+            ],
+            [
+              "Engine HP",
+              "is_large"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "highway MPG"
+            ],
+            [
+              "is_large",
+              "Engine HP",
+              "highway MPG",
+              "Engine Cylinders"
+            ],
+            [
+              "is_large",
+              "Popularity",
+              "Engine HP",
+              "highway MPG",
+              "Engine Cylinders"
+            ],
+            [
+              "is_large",
+              "Popularity",
+              "Engine HP",
+              "is_automatic",
+              "highway MPG",
+              "Engine Cylinders"
+            ],
+            [
+              "is_large",
+              "Popularity",
+              "Engine HP",
+              "is_automatic",
+              "highway MPG",
+              "is_performance",
+              "Engine Cylinders"
+            ],
+            [
+              "is_large",
+              "Popularity",
+              "Engine HP",
+              "Number of Doors",
+              "is_automatic",
+              "highway MPG",
+              "is_performance",
+              "Engine Cylinders"
+            ],
+            [
+              "city mpg",
+              "is_large",
+              "Popularity",
+              "Engine HP",
+              "Number of Doors",
+              "is_automatic",
+              "highway MPG",
+              "is_performance",
+              "Engine Cylinders"
+            ],
+            [
+              "city mpg",
+              "is_large",
+              "Popularity",
+              "Engine HP",
+              "Number of Doors",
+              "is_automatic",
+              "highway MPG",
+              "is_performance",
+              "Engine Cylinders",
+              "Year"
+            ],
+            [
+              "Year",
+              "Engine HP",
+              "Engine Cylinders",
+              "Number of Doors",
+              "highway MPG",
+              "city mpg",
+              "Popularity",
+              "is_luxury",
+              "is_performance",
+              "is_automatic",
+              "is_large"
+            ],
+            [
+              "Year",
+              "Engine HP",
+              "Engine Cylinders",
+              "Number of Doors",
+              "highway MPG",
+              "city mpg",
+              "Popularity",
+              "is_luxury",
+              "is_performance",
+              "is_automatic",
+              "is_awd",
+              "is_large"
+            ]
+          ]
+        },
+        "SelectKBest (Filter)": {
+          "k": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "rmse": [
+            32081.12,
+            32177.87,
+            32168.28,
+            32162.57,
+            31384.83,
+            31416.91,
+            31464.54,
+            31324.46,
+            30713.11,
+            30710.89,
+            30545.03,
+            30414.25
+          ],
+          "r2": [
+            0.5436,
+            0.5409,
+            0.5411,
+            0.5413,
+            0.5632,
+            0.5623,
+            0.561,
+            0.5649,
+            0.5817,
+            0.5818,
+            0.5863,
+            0.5898
+          ],
+          "features": [
+            [
+              "Engine HP"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance",
+              "is_luxury"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance",
+              "is_luxury",
+              "city mpg"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance",
+              "is_luxury",
+              "city mpg",
+              "Year"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance",
+              "is_luxury",
+              "city mpg",
+              "Year",
+              "highway MPG"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance",
+              "is_luxury",
+              "city mpg",
+              "Year",
+              "highway MPG",
+              "Number of Doors"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance",
+              "is_luxury",
+              "city mpg",
+              "Year",
+              "highway MPG",
+              "Number of Doors",
+              "is_large"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance",
+              "is_luxury",
+              "city mpg",
+              "Year",
+              "highway MPG",
+              "Number of Doors",
+              "is_large",
+              "is_awd"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance",
+              "is_luxury",
+              "city mpg",
+              "Year",
+              "highway MPG",
+              "Number of Doors",
+              "is_large",
+              "is_awd",
+              "Popularity"
+            ],
+            [
+              "Engine HP",
+              "Engine Cylinders",
+              "is_performance",
+              "is_luxury",
+              "city mpg",
+              "Year",
+              "highway MPG",
+              "Number of Doors",
+              "is_large",
+              "is_awd",
+              "Popularity",
+              "is_automatic"
+            ]
+          ]
+        },
+        "VIF Backward Elimination": {
+          "k": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "rmse": [
+            45314.53,
+            44868.2,
+            42813.84,
+            42780.35,
+            42771.54,
+            41150.04,
+            39098.81,
+            38985.66,
+            38194.3,
+            32659.22,
+            30349.2,
+            30414.25
+          ],
+          "r2": [
+            0.0894,
+            0.1073,
+            0.1872,
+            0.1884,
+            0.1888,
+            0.2491,
+            0.3221,
+            0.326,
+            0.3531,
+            0.527,
+            0.5916,
+            0.5898
+          ],
+          "features": [
+            [
+              "is_luxury"
+            ],
+            [
+              "is_luxury",
+              "is_large"
+            ],
+            [
+              "Year",
+              "is_luxury",
+              "is_large"
+            ],
+            [
+              "Year",
+              "Popularity",
+              "is_luxury",
+              "is_large"
+            ],
+            [
+              "Year",
+              "Popularity",
+              "is_luxury",
+              "is_awd",
+              "is_large"
+            ],
+            [
+              "Year",
+              "Number of Doors",
+              "Popularity",
+              "is_luxury",
+              "is_awd",
+              "is_large"
+            ],
+            [
+              "Year",
+              "Number of Doors",
+              "city mpg",
+              "Popularity",
+              "is_luxury",
+              "is_awd",
+              "is_large"
+            ],
+            [
+              "Year",
+              "Number of Doors",
+              "city mpg",
+              "Popularity",
+              "is_luxury",
+              "is_automatic",
+              "is_awd",
+              "is_large"
+            ],
+            [
+              "Year",
+              "Number of Doors",
+              "city mpg",
+              "Popularity",
+              "is_luxury",
+              "is_performance",
+              "is_automatic",
+              "is_awd",
+              "is_large"
+            ],
+            [
+              "Year",
+              "Engine Cylinders",
+              "Number of Doors",
+              "city mpg",
+              "Popularity",
+              "is_luxury",
+              "is_performance",
+              "is_automatic",
+              "is_awd",
+              "is_large"
+            ],
+            [
+              "Year",
+              "Engine HP",
+              "Engine Cylinders",
+              "Number of Doors",
+              "city mpg",
+              "Popularity",
+              "is_luxury",
+              "is_performance",
+              "is_automatic",
+              "is_awd",
+              "is_large"
+            ],
+            [
+              "Year",
+              "Engine HP",
+              "Engine Cylinders",
+              "Number of Doors",
+              "highway MPG",
+              "city mpg",
+              "Popularity",
+              "is_luxury",
+              "is_performance",
+              "is_automatic",
+              "is_awd",
+              "is_large"
+            ]
+          ]
+        }
+      }
+    }
+  }
+}

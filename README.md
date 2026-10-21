@@ -80,15 +80,19 @@
 AIOT-1014-DIC/
 ├── 50_Startups.csv                        # 50 筆新創公司原始資料集
 ├── BostonHousing.csv                      # 506 筆波士頓房價原始資料集（13 特徵 + MEDV）
+├── car.csv                                # 11,815 筆車輛規格與定價原始資料集（12 特徵 + MSRP）
 ├── main.py                                # 50 Startups 完整 CRISP-DM 流程主程式
 ├── DIC.py                                 # 50 Startups 模型 B：多重共線性診斷與 VIF 分析
 ├── boston_main.py                         # Boston Housing 完整特徵選擇主程式 (k=1~13)
 ├── boston_DIC.py                          # Boston Housing 模型 B：迭代 VIF 共線性消除分析
+├── car_main.py                            # Car Features & MSRP 完整特徵選擇主程式 (k=1~12)
+├── car_DIC.py                             # Car Features & MSRP 模型 B：迭代 VIF 共線性消除分析
 ├── run_feature_selection_comparison.py    # 批次基準測試與比較矩陣生成腳本
 ├── generate_all_plots.py                  # 各演算法獨立 2-Panel 圖表生成器
 ├── dump_coefficients.py                   # 提取迴歸係數輔助腳本
 ├── feature_selection_comparison.png       # 50 Startups 特徵選擇全維度性能對比圖
 ├── boston_feature_selection_comparison.png# Boston Housing 特徵選擇全維度性能對比圖
+├── car_feature_selection_comparison.png   # Car Features 特徵選擇全維度性能對比圖
 ├── startup_feature_selection_models.joblib # 50 Startups 序列化模型
 ├── startup_model_b.joblib                 # 50 Startups 模型 B 成果
 ├── startup_model_comparison.csv           # 50 Startups 比較結果數據表
@@ -96,6 +100,10 @@ AIOT-1014-DIC/
 ├── boston_model_b.joblib                  # Boston Housing 模型 B 成果
 ├── boston_model_comparison.csv            # Boston Housing 比較結果數據表
 ├── boston_metadata.json                   # Boston Housing Web 完整中繼資料
+├── car_feature_selection_models.joblib    # Car Features 序列化模型
+├── car_model_b.joblib                     # Car Features 模型 B 成果
+├── car_model_comparison.csv               # Car Features 比較結果數據表
+├── car_metadata.json                      # Car Features Web 完整中繼資料
 ├── index.html                             # 多資料集互動式 Web 決策與預測儀表板
 ├── app.js                                 # 可擴充架構之儀表板邏輯 (支援多資料集即時切換)
 ├── style.css                              # Glassmorphism 風格深色/質感 CSS 設計
@@ -111,10 +119,10 @@ AIOT-1014-DIC/
 本專案提供現代化 Web 決策儀表板（無需後端伺服器，直接以瀏覽器開啟 `index.html` 即可使用）：
 
 * **資料集切換選單 (Dataset Dropdown)**：
-  * 可隨時於 **「50 Startups (新創獲利預測)」** 與 **「Boston Housing (波士頓房價)」** 之間即時切換。
-  * 前端採用模組化註冊表設計（`DATASETS`），未來新增任何資料集（如加州房價、糖尿病資料等）僅需增加一筆配置，儀表板將自動生成對應的滑桿輸入、圖表、評估表與診斷指標。
+  * 可隨時於 **「50 Startups (新創獲利預測)」**、**「Boston Housing (波士頓房價)」** 與 **「Car Features & MSRP (車輛規格與定價)」** 之間即時切換。
+  * 前端採用模組化註冊表設計（`DATASETS`），未來新增任何資料集（如糖尿病資料、紅酒品質等）僅需增加一筆配置，儀表板將自動生成對應的滑桿輸入、圖表、評估表與診斷指標。
 * **即時數值試算機**：針對選定之資料集動態生成各項特徵輸入滑桿與數值方塊，即時計算預測值、公式與特徵貢獻分解。
-* **多維度特徵曲線圖**：動態展示 5 大演算法隨特徵數量增加之 RMSE 誤差收斂與 $R^2$ 解釋力變化（50 Startups: $k=1 \sim 5$；Boston Housing: $k=1 \sim 13$）。
+* **多維度特徵曲線圖**：動態展示 5 大演算法隨特徵數量增加之 RMSE 誤差收斂與 $R^2$ 解釋力變化（50 Startups: $k=1 \sim 5$；Boston Housing: $k=1 \sim 13$；Car MSRP: $k=1 \sim 12$）。
 * **共線性矩陣與 VIF 診斷**：動態呈現皮爾森相關矩陣熱圖、診斷指標與 VIF 方差膨脹因子長條圖。
 
 ---
