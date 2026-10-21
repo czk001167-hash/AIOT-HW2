@@ -18,17 +18,18 @@
 
 ## 📖 專案概述 (Project Overview)
 
-本專案嚴格遵循 **CRISP-DM（Cross-Industry Standard Process for Data Mining）** 流程，針對三個具備不同規模、維度與業務特性的經典數據集進行深度探索、特徵工程、多重共線性診斷（VIF 消除分析，Model B），並系統性評估 **5 大特徵選擇演算法（Feature Selection Algorithms）** 在不同特徵維度 $k$ 下對多元線性迴歸（Multiple Linear Regression）預測性能與泛化能力的影響：
+本專案嚴格遵循 **CRISP-DM（Cross-Industry Standard Process for Data Mining）** 流程，針對四個具備不同規模、維度與業務特性的經典數據集進行深度探索、特徵工程、多重共線性診斷（VIF 消除分析，Model B），並系統性評估 **5 大特徵選擇演算法（Feature Selection Algorithms）** 在不同特徵維度 $k$ 下對多元線性迴歸（Multiple Linear Regression）預測性能與泛化能力的影響：
 
 1. **🏢 50 Startups (`50_Startups.csv`)**：50 家創投新創公司，預測企業淨利（`Profit`），維度 $k = 1 \sim 5$。
 2. **🏡 Boston Housing (`BostonHousing.csv`)**：506 個城鎮住宅區，預測房價中位數（`medv`），維度 $k = 1 \sim 13$。
 3. **🚗 Car Features & MSRP (`car.csv`)**：11,815 筆市售車輛規格數據，預測建議零售價（`MSRP`），維度 $k = 1 \sim 12$。
+4. **❤️ UCI Heart Disease (`UCI Heart Disease Dataset.csv`)**：297 筆臨床病患健康數據，預估心臟病罹患風險機率（`target`），維度 $k = 1 \sim 13$。
 
-專案同時提供以原生 Web 技術建構之**現代化互動式決策與即時預測儀表板**（Glassmorphism UI），支援三資料集下拉式切換、動態滑桿試算模擬、跨演算法趨勢曲線與多重共線性（VIF）視覺化診斷。
+專案同時提供以原生 Web 技術建構之**現代化互動式決策與即時預測儀表板**（Glassmorphism UI），支援四資料集下拉式切換、動態滑桿試算模擬、跨演算法趨勢曲線與多重共線性（VIF）視覺化診斷。
 
 ---
 
-## 📊 三大資料集特徵選擇全維度對比與核心發現
+## 📊 四大資料集特徵選擇全維度對比與核心發現
 
 ### 1. 🏢 50 Startups 新創獲利預測 ($k = 1 \sim 5$)
 
@@ -73,6 +74,19 @@
 
 ---
 
+### 4. ❤️ UCI Heart Disease 心臟病風險預估 ($k = 1 \sim 13$)
+
+![UCI Heart Disease Feature Selection Comparison](heart_feature_selection_comparison.png)
+
+* **關鍵臨床病理指標 ($k=1$)**：
+  * 所有演算法在 $k=1$ 均鎖定 `thal`（心肌血流灌注掃描缺損），單一變數即解釋高達 **36.27%** 患病風險變異（Test RMSE: **0.3911**，$R^2 = 0.3627$）。
+* **最佳泛化維度 ($k=8$) 顯著超越全變數**：
+  * 測試集評估（RS=42）顯示，在 $k=8$ 時達到全域最高判定係數（Test $R^2 = \mathbf{0.6269}$，Test RMSE: **0.2992**），**顯著擊敗包含全部 13 項特徵之未精簡模型**（$R^2 = 0.5715$，RMSE: 0.3207）。
+* **統計顯著性精簡 (Model B)**：
+  * 逐項後向消除 $p > 0.05$ 之非顯著特徵（`age` 年齡、`slope` 斜率、`chol` 膽固醇、`restecg` 心電圖），保留 9 項核心指標（`sex`, `cp`, `trestbps`, `fbs`, `thalach`, `exang`, `oldpeak`, `ca`, `thal`），全數 VIF $< 1.5$ 且 Test $R^2 = 0.5625$，兼具臨床實用性與模型穩健性。
+
+---
+
 ## 🔍 5 大特徵選擇演算法技術比較
 
 | 演算法 | 類型 | 核心機制 | 優點 | 局限性 |
@@ -85,7 +99,7 @@
 
 ---
 
-## 📈 三大資料集評估指標對照表
+## 📈 四大資料集評估指標對照表
 
 ### 1. 50 Startups (Random State = 0, $N=10$)
 
@@ -117,6 +131,15 @@
 | 單變數基準 (Baseline) | 1 | `['Engine HP']` | $32,081.12 | 0.5436 |
 | **Model B (VIF <= 2.8)** | 10 | 剔除 `highway MPG` 與 `Cylinders` | **$30,941.19** | **0.5755** |
 
+### 4. UCI Heart Disease (Random State = 42, $N=60$)
+
+| 模型階段 | $k$ | 所選特徵組合 | Test RMSE (Probability) | Test $R^2$ |
+| :--- | :---: | :--- | :---: | :---: |
+| **最佳精簡模型 (SelectKBest)** | **8** | `['thal', 'ca', 'exang', 'oldpeak', 'thalach', 'cp', 'slope', 'sex']` | **0.2992** | **0.6269** |
+| 全變數回歸 (Full OLS) | 13 | 全部 13 項臨床特徵 | 0.3207 | 0.5715 |
+| 單變數基準 (Baseline) | 1 | `['thal']` | 0.3911 | 0.3627 |
+| **Model B (p <= 0.05)** | 9 | 剔除 `age`, `slope`, `chol`, `restecg` | **0.3240** | **0.5625** |
+
 ---
 
 ## 🗂️ 專案檔案結構說明
@@ -126,6 +149,7 @@ AIOT-HW2/
 ├── 50_Startups.csv                        # 50 筆新創公司原始資料集
 ├── BostonHousing.csv                      # 506 筆波士頓房價原始資料集（13 特徵 + MEDV）
 ├── car.csv                                # 11,815 筆車輛規格與定價原始資料集（12 特徵 + MSRP）
+├── UCI Heart Disease Dataset.csv          # 297 筆心臟病臨床原始資料集（13 特徵 + Target）
 │
 ├── main.py                                # 50 Startups 完整 CRISP-DM 特徵選擇流程主程式
 ├── DIC.py                                 # 50 Startups 模型 B：多重共線性診斷與 VIF 分析
@@ -133,10 +157,13 @@ AIOT-HW2/
 ├── boston_DIC.py                          # Boston Housing 模型 B：迭代 VIF 共線性消除分析
 ├── car_main.py                            # Car Features & MSRP 特徵選擇主程式 (k=1~12)
 ├── car_DIC.py                             # Car Features & MSRP 模型 B：迭代 VIF 共線性消除分析
+├── heart_main.py                          # UCI Heart Disease 特徵選擇主程式 (k=1~13)
+├── heart_DIC.py                           # UCI Heart Disease 模型 B：顯著性與共線性分析
 │
 ├── feature_selection_comparison.png       # 50 Startups 300 DPI 性能對比基準圖
 ├── boston_feature_selection_comparison.png# Boston Housing 300 DPI 性能對比基準圖
 ├── car_feature_selection_comparison.png   # Car Features 300 DPI 性能對比基準圖
+├── heart_feature_selection_comparison.png # UCI Heart Disease 300 DPI 性能對比基準圖
 │
 ├── startup_feature_selection_models.joblib# 50 Startups 序列化模型
 ├── startup_model_b.joblib                 # 50 Startups 模型 B 成果
@@ -149,11 +176,15 @@ AIOT-HW2/
 ├── car_model_b.joblib                     # Car Features 模型 B 成果
 ├── car_model_comparison.csv               # Car Features 評估指標彙總表
 ├── car_metadata.json                      # Car Features Web 完整中繼資料
+├── heart_feature_selection_models.joblib  # UCI Heart Disease 序列化模型
+├── heart_model_b.joblib                   # UCI Heart Disease 模型 B 成果
+├── heart_model_comparison.csv             # UCI Heart Disease 評估指標彙總表
+├── heart_metadata.json                    # UCI Heart Disease Web 完整中繼資料
 │
 ├── index.html                             # 多資料集互動式 Web 決策與預測儀表板
 ├── app.js                                 # 模組化多資料集架構前端邏輯
 ├── style.css                              # Glassmorphism 風格深色質感響應式 CSS
-├── screenshot.png                         # 分析平台操作畫面截圖
+├── screenshot.png                         # 分析平台操作畫面截圖 (含4資料集切換選單)
 ├── requirements.txt                       # Python 相依套件清單
 └── README.md                              # 專案詳細文檔
 ```
@@ -165,13 +196,13 @@ AIOT-HW2/
 儀表板採用純原生 Web 技術構建，**免後端依賴，直接開啟 `index.html` 即可使用**：
 
 1. **模組化資料集下拉選單 (`#dataset-selector`)**：
-   - 支援隨時無縫切換 **50 Startups**、**Boston Housing** 與 **Car Features & MSRP**。
+   - 支援隨時無縫切換 **50 Startups**、**Boston Housing**、**Car Features & MSRP** 與 **UCI Heart Disease**。
    - 採用 **配置驅動架構（Config-Driven Schema）**，在 `app.js` 的 `DATASETS` 註冊新資料集即可自動產生對應面板，擴充性極佳。
 2. **多維度特徵趨勢曲線 (Chart.js)**：
-   - 自適應支援 $k=1 \sim 5$（50 Startups）、$k=1 \sim 13$（Boston Housing）與 $k=1 \sim 12$（Car Features）的 RMSE 誤差與 $R^2$ 解釋力雙軸曲線。
+   - 自適應支援各資料集特徵階層（$k=1 \sim 5$、$k=1 \sim 13$、$k=1 \sim 12$）的 RMSE 誤差與 $R^2$ 解釋力雙軸曲線。
 3. **即時數值預測模擬器 (Live Predictor)**：
-   - 根據當前資料集動態渲染輸入控制項（如 50 Startups 的 3 組花費、Boston Housing 的 13 組城鎮指標、Car MSRP 的 12 組規格滑桿）。
-   - 即時計算回歸方程式、特徵邊際貢獻分解，並同時比對 **Model A（全特徵）** 與 **Model B（VIF 精簡模型）** 的預測差異。
+   - 根據當前資料集動態渲染輸入控制項（如心臟病的 13 組臨床檢驗滑桿、車輛的 12 組規格滑桿等）。
+   - 即時計算回歸方程式、特徵邊際貢獻分解，並同時比對 **Model A（全特徵）** 與 **Model B（精簡模型）** 的預測差異。
 4. **共線性熱圖與 VIF 診斷分析**：
    - 動態繪製皮爾森相關係數矩陣熱圖。
    - 提供方差膨脹因子（VIF）互動式條形圖，以 5.0 為紅色警戒閾值，清楚標示高共線性特徵與剔除後成效。
@@ -214,6 +245,11 @@ pip install -r requirements.txt
   python car_main.py     # k=1~12 特徵選擇與基準圖生成
   python car_DIC.py      # Model B 共線性 VIF 分析
   ```
+* **UCI Heart Disease 分析**：
+  ```bash
+  python heart_main.py   # k=1~13 特徵選擇與基準圖生成
+  python heart_DIC.py    # Model B 統計顯著性精簡分析
+  ```
 
 ### 4. 開啟 Web 儀表板
 直接點擊雙擊 `index.html`，或使用靜態 HTTP 伺服器：
@@ -226,10 +262,10 @@ python -m http.server 8080
 
 ## 📌 結論與實務決策建議
 
-1. **奧卡姆剃刀原則（Occam's Razor）普適成立**：
-   - 無論在新創獲利預測（$k=2$）、波士頓房價（$k=7$）或車輛定價（$k=11$），**適度精簡特徵之模型泛化性能皆顯著優於使用全部候選特徵的未精簡回歸**，證實無關或共線性特徵只會徒增估計方差。
-2. **多重共線性防護（VIF < 5.0）**：
-   - 高相關特徵對（如波士頓的 `tax` 與 `rad`，車輛的 `highway MPG` 與 `city mpg`、`Engine Cylinders` 與 `HP`）會導致係數符號顛倒與估計不穩定。Model B 透過逐項剔除法消除高 VIF 特徵，能在保留逾 95% 預測力的前提下大幅增強模型的經濟與商業解釋性。
+1. **奧卡姆剃刀原則（Occam's Razor）跨領域普適成立**：
+   - 無論在新創獲利預測（$k=2$）、波士頓房價（$k=7$）、車輛定價（$k=11$）或臨床心臟病風險（$k=8$），**適度精簡特徵之模型泛化性能皆顯著優於使用全部候選特徵的未精簡回歸**，證實無關或共線性特徵只會徒增估計方差。
+2. **多重共線性防護與顯著性剪枝**：
+   - 高相關特徵對（如波士頓的 `tax` 與 `rad`，車輛的 `highway MPG` 與 `city mpg`）會導致係數符號顛倒與估計不穩定。Model B 透過逐步剔除法消除高 VIF 或缺乏統計顯著性的特徵，能在保留逾 95% 預測力的前提下大幅增強模型的商業與臨床解釋性。
 3. **特徵選擇演算法實務選型**：
-   - 特徵數較小（$p \le 12$）時，**Exhaustive Search（最佳子集法）** 能避免貪婪搜尋的局部陷阱。
+   - 特徵數較小（$p \le 13$）時，**Exhaustive Search（最佳子集法）** 能避免貪婪搜尋的局部陷阱。
    - 特徵數中大型（$p > 15$）時，**Lasso (L1 Regularization)** 與 **Forward SFS** 能兼顧計算效能與稀疏穩健性。
