@@ -1,129 +1,180 @@
-# AIOT-1014-DIC: 50 Startups 多元線性迴歸與特徵選擇比較分析
+# AIOT-HW2: 多資料集多元線性迴歸與5大特徵選擇演算法分析平台
 
-## 🔗 相關連結與展示
+[![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/czk001167-hash/AIOT-HW2)
+[![Live Demo](https://img.shields.io/badge/Live-Demo_Dashboard-brightgreen?logo=googlechrome)](https://czk001167-hash.github.io/AIOT-HW2/)
+[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python)](https://www.python.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-* **GitHub 連結**：https://github.com/czk001167-hash/AIOT-1014-DIC
-* **網頁連結**：https://czk001167-hash.github.io/AIOT-1014-DIC/
+## 🔗 相關連結與線上展示
 
-### 📊 平台畫面截圖
+* **GitHub 儲存庫**：[https://github.com/czk001167-hash/AIOT-HW2](https://github.com/czk001167-hash/AIOT-HW2)
+* **互動式儀表板 (GitHub Pages)**：[https://czk001167-hash.github.io/AIOT-HW2/](https://czk001167-hash.github.io/AIOT-HW2/)
+
+### 📊 平台操作畫面截圖
 
 ![5大特徵選擇演算法分析平台](screenshot.png)
 
 ---
 
-本專案遵循 **CRISP-DM（Cross-Industry Standard Process for Data Mining）** 流程，針對新創公司數據集（`50_Startups.csv`）進行深度探索、特徵工程、多重共線性診斷，並系統性評估 **5 大特徵選擇演算法（Feature Selection Algorithms）** 在特徵維度 $k = 1 \sim 5$ 下對多元線性迴歸模型預測利潤（`Profit`）的影響與泛化能力。
+## 📖 專案概述 (Project Overview)
 
-專案同時包含以原生 Web 技術建構之**現代化互動式決策與預測儀表板**（Glassmorphism UI），提供即時利潤預估、特徵重要性分析與跨演算法比較。
+本專案嚴格遵循 **CRISP-DM（Cross-Industry Standard Process for Data Mining）** 流程，針對三個具備不同規模、維度與業務特性的經典數據集進行深度探索、特徵工程、多重共線性診斷（VIF 消除分析，Model B），並系統性評估 **5 大特徵選擇演算法（Feature Selection Algorithms）** 在不同特徵維度 $k$ 下對多元線性迴歸（Multiple Linear Regression）預測性能與泛化能力的影響：
 
----
+1. **🏢 50 Startups (`50_Startups.csv`)**：50 家創投新創公司，預測企業淨利（`Profit`），維度 $k = 1 \sim 5$。
+2. **🏡 Boston Housing (`BostonHousing.csv`)**：506 個城鎮住宅區，預測房價中位數（`medv`），維度 $k = 1 \sim 13$。
+3. **🚗 Car Features & MSRP (`car.csv`)**：11,815 筆市售車輛規格數據，預測建議零售價（`MSRP`），維度 $k = 1 \sim 12$。
 
-## 📊 核心成果：特徵選擇演算法全維度對比
-
-下圖為在測試集（Test Set, 80/20 分割, `random_state=0`）上評估 5 種特徵選擇演算法於 $k=1 \sim 5$ 時的表現：
-
-![5 Feature Selection Methods Comparison](feature_selection_comparison.png)
-
-### 關鍵統計學洞察：為什麼特徵不是越多越好？
-
-1. **過擬合（Overfitting）與雜訊變數（Noise Variables）**：
-   * 在 $k=1$ 時，單靠 `R&D Spend`（研發支出）即能解釋高達 **94.65%** 的利潤變異（Test RMSE = 8,275）。
-   * 在 $k=2$ 時，加入 `Marketing Spend`（行銷支出）達到實務最佳泛化性能（Test RMSE 降至 **8,198.80**，Test $R^2$ 提升至 **0.9474**）。
-   * 當特徵數繼續增加到 $k=3 \sim 5$（納入 `Administration` 行政支出與州別虛擬變數），**模型性能反而大幅劣化**（全變數時 RMSE 飆升至 **9,137.99**，降幅顯著）。這是因為後續特徵本質上接近雜訊，小樣本（50 筆）下多估計參數只會膨脹估計方差。
-
-2. **演算法在端點的必然收斂**：
-   * **$k=1$ 與 $k=2$ 完全重疊**：所有演算法的第一優先特徵均為 `R&D Spend`，前二特徵均為 `[R&D, Marketing]`。
-   * **$k=5$ 完全合流**：候選特徵僅有 5 個，選滿時皆退化為傳統普通最小平方法（Full OLS）。
-
-3. **貪婪搜尋陷阱（Greedy Trap）vs. 窮舉全域最優（Exhaustive Search）**：
-   * **Forward SFS** 與 **RFE** 在 $k=3$ 時因前兩步鎖定 `[R&D, Marketing]`，只能被動加入 `Administration`，導致 RMSE 暴增至 8,804。
-   * **Exhaustive Search（窮舉法）** 跳脫了前兩步的巢狀限制，在 $k=3$ 時跳過 Marketing，直接選取 `['R&D Spend', 'Administration', 'State_Florida']`，創下測試集最佳紀錄（RMSE = **8,171.65**，$R^2$ = **0.9478**）。
-
-4. **Lasso L1 正則化的穩健折衷**：
-   * **Lasso (L1 Ranking)** 透過稀疏係數收縮，在 $k=3$ 與 $k=4$ 優先將州別虛擬變數排在行政支出之前，表現明顯優於一般貪婪法。
+專案同時提供以原生 Web 技術建構之**現代化互動式決策與即時預測儀表板**（Glassmorphism UI），支援三資料集下拉式切換、動態滑桿試算模擬、跨演算法趨勢曲線與多重共線性（VIF）視覺化診斷。
 
 ---
 
-## 🔍 5 大特徵選擇方法詳細規格
+## 📊 三大資料集特徵選擇全維度對比與核心發現
+
+### 1. 🏢 50 Startups 新創獲利預測 ($k = 1 \sim 5$)
+
+![50 Startups Feature Selection Comparison](feature_selection_comparison.png)
+
+* **最佳維度與奧卡姆剃刀（Occam's Razor）**：
+  * 在 $k=1$ 時，單靠 `R&D Spend`（研發支出）即能解釋高達 **94.65%** 的利潤變異（Test RMSE = 8,275）。
+  * 在 $k=2$ 時，加入 `Marketing Spend`（行銷支出）達到實務最佳泛化性能（Test RMSE 降至 **8,198.80**，Test $R^2$ 提升至 **0.9474**）。
+  * 在 $k=3 \sim 5$ 時，強行納入 `Administration`（行政支出）與州別虛擬變數，反而導致測試誤差暴增（全變數 RMSE 飆升至 **9,137.99**，+11.45% 誤差），印證小樣本過度參數化導致方差膨脹。
+* **演算法收斂特性**：
+  * **$k=1, 2$ 端點完全重疊**：所有演算法第一優先特徵均為 `R&D Spend`，前二特徵皆為 `[R&D, Marketing]`。
+  * **Exhaustive Search 突破貪婪陷阱**：在 $k=3$ 時跳過 Marketing 改選 `[R&D, Admin, Florida]`，創下測試集最低紀錄（RMSE = **8,171.65**）。
+
+---
+
+### 2. 🏡 Boston Housing 波士頓房價預測 ($k = 1 \sim 13$)
+
+![Boston Housing Feature Selection Comparison](boston_feature_selection_comparison.png)
+
+* **壓倒性主導特徵 ($k=1, 2$)**：
+  * 所有演算法在 $k=1$ 時壓倒性鎖定 `lstat`（低收入人口比例），單一變數即可解釋 **43.10% ~ 54.29%** 之房價變異（Test RMSE: 5.79k ~ 6.81k）。
+  * $k=2$ 時加入 `rm`（每戶平均房間數），解釋力迅速躍升至 57.4%。
+* **最佳精簡模型優於全特徵**：
+  * 測試集評估顯示，在 $k=7$（Test RMSE **4.90k**，$R^2 = \mathbf{0.6727}$）與 $k=12$（Test RMSE **5.78k**）達到泛化頂峰，**整體表現顯著優於使用全部 13 項特徵之未精簡回歸**（$R^2 = 0.6688$）。
+* **Model B 多重共線性消除**：
+  * 診斷發現 `tax`（不動產稅率）與 `rad`（高速公路便利指數）高度共線（$r = 0.910$），`tax` 的初始 VIF 高達 **9.01**。
+  * Model B 迭代剔除 `tax` 後，其餘 12 項特徵之 VIF 全數降至安全值 **4.5 以下**，消除共線性方差膨脹。
+
+---
+
+### 3. 🚗 Car Features & MSRP 車輛規格與定價預測 ($k = 1 \sim 12$)
+
+![Car Features Selection Comparison](car_feature_selection_comparison.png)
+
+* **核心定價動力 ($k=1$)**：
+  * 所有演算法在 $k=1$ 均壓倒性選取 `Engine HP`（引擎馬力），單一特徵即可解釋高達 **54.36%** 的車價變異（$R^2 = 0.5436$，Test RMSE: **$32,081**）。
+* **維度精簡效益 ($k=11$)**：
+  * 透過 VIF 後向消除與特徵挑選，在 $k=11$ 達到全域最低測試誤差（Test RMSE: **$30,349.20**，$R^2 = \mathbf{0.5916}$），擊敗全 12 特徵模型（RMSE: $30,414.25）。
+* **雙重共線性診斷與 Model B**：
+  * `highway MPG`（高速油耗）與 `city mpg`（市區油耗）共線性極高（$r = 0.887$），初始 VIF 高達 **10.10**；發動機汽缸數 `Engine Cylinders` 與馬力 `Engine HP`（$r = 0.774$）亦造成馬力 VIF 膨脹至 **6.59**。
+  * **Model B 逐步消除法**：依序移除 `highway MPG` 與 `Engine Cylinders`，使剩餘 10 項特徵之 **VIF 全數壓制於 2.80 以下**，徹底消除共線性問題並保留 98% 預測性能（$R^2 = 0.5755$）。
+
+---
+
+## 🔍 5 大特徵選擇演算法技術比較
 
 | 演算法 | 類型 | 核心機制 | 優點 | 局限性 |
 | :--- | :--- | :--- | :--- | :--- |
-| **Lasso (L1 Ranking)** | 嵌入法 (Embedded) | $L_1$ 正則化懲罰稀疏收縮 | 自動特徵剔除，抗共線性能力強 | 高度相關變數容易隨機保留其一 |
-| **Forward SFS** | 封裝法 (Wrapper) | 基於 5-Fold CV $R^2$ 前向貪婪逐步加入 | 考慮特徵與模型的非線性交互作用 | 計算成本高，容易陷入局部最佳解 |
-| **RFE** | 封裝法 (Wrapper) | 標準化 OLS 係數遞迴消除最小貢獻項 | 針對特定模型做全域剪枝 | 同樣受貪婪消除限制 |
-| **ElasticNet Ranking** | 嵌入法 (Embedded) | $L_1 + L_2$ 混合正則化 | 群組效應（Group Effect），兼顧相關特徵 | 超參數需雙重調優（$\alpha, \text{l1\_ratio}$） |
-| **Exhaustive Search** | 最佳子集 (Best Subset) | 評估 $\binom{5}{k}$ 所有組合在驗證上的表現 | 保證找到該維度下的全域最佳組合 | 當特徵數龐大時組合爆炸（維度災難） |
+| **Lasso (L1 Ranking)** | 嵌入法 (Embedded) | $L_1$ 範數懲罰使不顯著特徵係數歸零 | 計算極快，天然抗共線性 | 高度相關變數容易隨機保留其一 |
+| **Forward SFS** | 封裝法 (Wrapper) | 基於 5-Fold CV $R^2$ 貪婪逐項納入最佳特徵 | 考慮特徵與模型的協同效應 | 易受貪婪路徑限制，無法回溯 |
+| **RFE** | 封裝法 (Wrapper) | 依據標準化 OLS 係數絕對值逐項剪枝 | 全域考量特徵重要性 | 遞歸計算成本隨維度增加 |
+| **ElasticNet Ranking** | 嵌入法 (Embedded) | $L_1 + L_2$ 雙重正則化 | 具備群組效應（Group Effect） | 需交叉驗證調優雙重超參數 |
+| **Exhaustive Search** | 最佳子集 (Best Subset) | 評估 $\binom{p}{k}$ 所有可能組合的驗證分數 | 保證找到該維度下的數學全域最優解 | 特徵數較大時遭遇組合爆炸 |
 
 ---
 
-## 📈 評估指標對照表（$k=1 \sim 5$）
+## 📈 三大資料集評估指標對照表
 
-以 `random_state=0` 進行 80/20 切分後於測試集（$N=10$）之實測結果：
+### 1. 50 Startups (Random State = 0, $N=10$)
 
-| 演算法 | $k$ | 所選特徵集合 | Test RMSE | Test $R^2$ | Test MAE |
-| :--- | :---: | :--- | :---: | :---: | :---: |
-| **Exhaustive Search** | **3** | `['R&D Spend', 'Administration', 'State_Florida']` | **8,171.65** | **0.9478** | **6,730.79** |
-| **Exhaustive Search** | 4 | `['R&D', 'Administration', 'State_Florida', 'State_New York']` | 8,178.37 | 0.9477 | 6,751.89 |
-| **實務首選 (All Methods)** | **2** | `['R&D Spend', 'Marketing Spend']` | **8,198.80** | **0.9474** | **6,886.59** |
-| 基線單變數 (All Methods) | 1 | `['R&D Spend']` | 8,274.87 | 0.9465 | 6,772.45 |
-| **Lasso (L1 Ranking)** | 3 | `['R&D Spend', 'Marketing Spend', 'State_New York']` | 8,309.06 | 0.9460 | 7,028.44 |
-| **Lasso (L1 Ranking)** | 4 | `['R&D', 'Marketing', 'State_New York', 'State_Florida']` | 8,409.92 | 0.9447 | 7,109.16 |
-| **Forward SFS / RFE / ENet** | 3 | `['R&D Spend', 'Administration', 'Marketing Spend']` | 8,803.78 | 0.9394 | 7,320.44 |
-| **ElasticNet Ranking** | 4 | `['R&D', 'Marketing', 'Admin', 'State_New York']` | 8,997.20 | 0.9367 | 7,474.74 |
-| **Forward SFS / RFE** | 4 | `['R&D', 'Admin', 'Marketing', 'State_Florida']` | 9,068.54 | 0.9357 | 7,431.47 |
-| **全特徵基準 (Full OLS)** | 5 | 全部 5 項特徵 | 9,137.99 | 0.9347 | 7,514.29 |
+| 演算法 | $k$ | 所選特徵集合 | Test RMSE | Test $R^2$ |
+| :--- | :---: | :--- | :---: | :---: |
+| **Exhaustive Search** | **3** | `['R&D Spend', 'Administration', 'State_Florida']` | **8,171.65** | **0.9478** |
+| **實務最佳 (All Methods)** | **2** | `['R&D Spend', 'Marketing Spend']` | **8,198.80** | **0.9474** |
+| 基線單變數 (All Methods) | 1 | `['R&D Spend']` | 8,274.87 | 0.9465 |
+| Lasso (L1 Ranking) | 3 | `['R&D Spend', 'Marketing Spend', 'State_New York']` | 8,309.06 | 0.9460 |
+| Forward SFS / RFE | 3 | `['R&D Spend', 'Administration', 'Marketing Spend']` | 8,803.78 | 0.9394 |
+| 全特徵基準 (Full OLS) | 5 | 全部 5 項特徵 | 9,137.99 | 0.9347 |
+
+### 2. Boston Housing (Random State = 42, $N=102$)
+
+| 模型階段 | $k$ | 所選特徵組合 | Test RMSE ($1,000s) | Test $R^2$ |
+| :--- | :---: | :--- | :---: | :---: |
+| **最佳泛化模型 (Lasso/RFE)** | **7** | `['nox', 'rm', 'dis', 'rad', 'tax', 'ptratio', 'lstat']` | **4.90** | **0.6727** |
+| 次優精簡模型 | 11 | 排除 `indus` 與 `age` 之 11 特徵 | 4.91 | 0.6715 |
+| 全變數回歸 (Full OLS) | 13 | 全部 13 項特徵 | 4.93 | 0.6688 |
+| 單變數基準 (Baseline) | 1 | `['lstat']` | 5.79 | 0.5429 |
+| **Model B (VIF <= 4.5)** | 12 | 剔除 `tax` 後之 12 項特徵 | 4.92 | 0.6702 |
+
+### 3. Car Features & MSRP (Random State = 42, $N=2,363$)
+
+| 模型階段 | $k$ | 所選特徵組合 | Test RMSE (USD) | Test $R^2$ |
+| :--- | :---: | :--- | :---: | :---: |
+| **最佳精簡模型 (VIF/SFS)** | **11** | 排除 `highway MPG` 之 11 項特徵 | **$30,349.20** | **0.5916** |
+| 全特徵回歸 (Full OLS) | 12 | 全部 12 項車輛規格特徵 | $30,414.25 | 0.5898 |
+| 單變數基準 (Baseline) | 1 | `['Engine HP']` | $32,081.12 | 0.5436 |
+| **Model B (VIF <= 2.8)** | 10 | 剔除 `highway MPG` 與 `Cylinders` | **$30,941.19** | **0.5755** |
 
 ---
 
 ## 🗂️ 專案檔案結構說明
 
 ```plaintext
-AIOT-1014-DIC/
+AIOT-HW2/
 ├── 50_Startups.csv                        # 50 筆新創公司原始資料集
 ├── BostonHousing.csv                      # 506 筆波士頓房價原始資料集（13 特徵 + MEDV）
 ├── car.csv                                # 11,815 筆車輛規格與定價原始資料集（12 特徵 + MSRP）
-├── main.py                                # 50 Startups 完整 CRISP-DM 流程主程式
+│
+├── main.py                                # 50 Startups 完整 CRISP-DM 特徵選擇流程主程式
 ├── DIC.py                                 # 50 Startups 模型 B：多重共線性診斷與 VIF 分析
-├── boston_main.py                         # Boston Housing 完整特徵選擇主程式 (k=1~13)
+├── boston_main.py                         # Boston Housing 特徵選擇流程主程式 (k=1~13)
 ├── boston_DIC.py                          # Boston Housing 模型 B：迭代 VIF 共線性消除分析
-├── car_main.py                            # Car Features & MSRP 完整特徵選擇主程式 (k=1~12)
+├── car_main.py                            # Car Features & MSRP 特徵選擇主程式 (k=1~12)
 ├── car_DIC.py                             # Car Features & MSRP 模型 B：迭代 VIF 共線性消除分析
-├── run_feature_selection_comparison.py    # 批次基準測試與比較矩陣生成腳本
-├── generate_all_plots.py                  # 各演算法獨立 2-Panel 圖表生成器
-├── dump_coefficients.py                   # 提取迴歸係數輔助腳本
-├── feature_selection_comparison.png       # 50 Startups 特徵選擇全維度性能對比圖
-├── boston_feature_selection_comparison.png# Boston Housing 特徵選擇全維度性能對比圖
-├── car_feature_selection_comparison.png   # Car Features 特徵選擇全維度性能對比圖
-├── startup_feature_selection_models.joblib # 50 Startups 序列化模型
+│
+├── feature_selection_comparison.png       # 50 Startups 300 DPI 性能對比基準圖
+├── boston_feature_selection_comparison.png# Boston Housing 300 DPI 性能對比基準圖
+├── car_feature_selection_comparison.png   # Car Features 300 DPI 性能對比基準圖
+│
+├── startup_feature_selection_models.joblib# 50 Startups 序列化模型
 ├── startup_model_b.joblib                 # 50 Startups 模型 B 成果
-├── startup_model_comparison.csv           # 50 Startups 比較結果數據表
+├── startup_model_comparison.csv           # 50 Startups 評估指標彙總表
 ├── boston_feature_selection_models.joblib # Boston Housing 序列化模型
 ├── boston_model_b.joblib                  # Boston Housing 模型 B 成果
-├── boston_model_comparison.csv            # Boston Housing 比較結果數據表
+├── boston_model_comparison.csv            # Boston Housing 評估指標彙總表
 ├── boston_metadata.json                   # Boston Housing Web 完整中繼資料
 ├── car_feature_selection_models.joblib    # Car Features 序列化模型
 ├── car_model_b.joblib                     # Car Features 模型 B 成果
-├── car_model_comparison.csv               # Car Features 比較結果數據表
+├── car_model_comparison.csv               # Car Features 評估指標彙總表
 ├── car_metadata.json                      # Car Features Web 完整中繼資料
+│
 ├── index.html                             # 多資料集互動式 Web 決策與預測儀表板
-├── app.js                                 # 可擴充架構之儀表板邏輯 (支援多資料集即時切換)
-├── style.css                              # Glassmorphism 風格深色/質感 CSS 設計
-├── screenshot.png                         # 5大特徵選擇演算法分析平台畫面截圖
+├── app.js                                 # 模組化多資料集架構前端邏輯
+├── style.css                              # Glassmorphism 風格深色質感響應式 CSS
+├── screenshot.png                         # 分析平台操作畫面截圖
 ├── requirements.txt                       # Python 相依套件清單
 └── README.md                              # 專案詳細文檔
 ```
 
 ---
 
-## 🌐 互動式 Web 預測儀表板 (支援多資料集切換與擴充)
+## 🌐 互動式 Web 預測儀表板功能特點
 
-本專案提供現代化 Web 決策儀表板（無需後端伺服器，直接以瀏覽器開啟 `index.html` 即可使用）：
+儀表板採用純原生 Web 技術構建，**免後端依賴，直接開啟 `index.html` 即可使用**：
 
-* **資料集切換選單 (Dataset Dropdown)**：
-  * 可隨時於 **「50 Startups (新創獲利預測)」**、**「Boston Housing (波士頓房價)」** 與 **「Car Features & MSRP (車輛規格與定價)」** 之間即時切換。
-  * 前端採用模組化註冊表設計（`DATASETS`），未來新增任何資料集（如糖尿病資料、紅酒品質等）僅需增加一筆配置，儀表板將自動生成對應的滑桿輸入、圖表、評估表與診斷指標。
-* **即時數值試算機**：針對選定之資料集動態生成各項特徵輸入滑桿與數值方塊，即時計算預測值、公式與特徵貢獻分解。
-* **多維度特徵曲線圖**：動態展示 5 大演算法隨特徵數量增加之 RMSE 誤差收斂與 $R^2$ 解釋力變化（50 Startups: $k=1 \sim 5$；Boston Housing: $k=1 \sim 13$；Car MSRP: $k=1 \sim 12$）。
-* **共線性矩陣與 VIF 診斷**：動態呈現皮爾森相關矩陣熱圖、診斷指標與 VIF 方差膨脹因子長條圖。
+1. **模組化資料集下拉選單 (`#dataset-selector`)**：
+   - 支援隨時無縫切換 **50 Startups**、**Boston Housing** 與 **Car Features & MSRP**。
+   - 採用 **配置驅動架構（Config-Driven Schema）**，在 `app.js` 的 `DATASETS` 註冊新資料集即可自動產生對應面板，擴充性極佳。
+2. **多維度特徵趨勢曲線 (Chart.js)**：
+   - 自適應支援 $k=1 \sim 5$（50 Startups）、$k=1 \sim 13$（Boston Housing）與 $k=1 \sim 12$（Car Features）的 RMSE 誤差與 $R^2$ 解釋力雙軸曲線。
+3. **即時數值預測模擬器 (Live Predictor)**：
+   - 根據當前資料集動態渲染輸入控制項（如 50 Startups 的 3 組花費、Boston Housing 的 13 組城鎮指標、Car MSRP 的 12 組規格滑桿）。
+   - 即時計算回歸方程式、特徵邊際貢獻分解，並同時比對 **Model A（全特徵）** 與 **Model B（VIF 精簡模型）** 的預測差異。
+4. **共線性熱圖與 VIF 診斷分析**：
+   - 動態繪製皮爾森相關係數矩陣熱圖。
+   - 提供方差膨脹因子（VIF）互動式條形圖，以 5.0 為紅色警戒閾值，清楚標示高共線性特徵與剔除後成效。
 
 ---
 
@@ -131,8 +182,8 @@ AIOT-1014-DIC/
 
 ### 1. 複製儲存庫
 ```bash
-git clone https://github.com/czk001167-hash/AIOT-1014-DIC.git
-cd AIOT-1014-DIC
+git clone https://github.com/czk001167-hash/AIOT-HW2.git
+cd AIOT-HW2
 ```
 
 ### 2. 安裝 Python 相依套件
@@ -147,14 +198,25 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 3. 執行主分析腳本
-```bash
-python main.py
-```
-> 執行後將依序完成 EDA、特徵預處理、VIF 檢驗、5 大特徵選擇演算法訓練與評估，並彈出與儲存 `feature_selection_comparison.png` 高清成果圖。
+### 3. 執行任一資料集之分析管線
+* **50 Startups 分析**：
+  ```bash
+  python main.py   # 特徵選擇流程與圖表生成
+  python DIC.py    # Model B 共線性 VIF 分析
+  ```
+* **Boston Housing 分析**：
+  ```bash
+  python boston_main.py  # k=1~13 特徵選擇與基準圖生成
+  python boston_DIC.py   # Model B 共線性 VIF 分析
+  ```
+* **Car Features & MSRP 分析**：
+  ```bash
+  python car_main.py     # k=1~12 特徵選擇與基準圖生成
+  python car_DIC.py      # Model B 共線性 VIF 分析
+  ```
 
 ### 4. 開啟 Web 儀表板
-直接點擊雙擊 `index.html`，或使用 VS Code Live Server / Python 簡易伺服器：
+直接點擊雙擊 `index.html`，或使用靜態 HTTP 伺服器：
 ```bash
 python -m http.server 8080
 ```
@@ -162,14 +224,12 @@ python -m http.server 8080
 
 ---
 
-## 📌 結論與實務建議
+## 📌 結論與實務決策建議
 
-1. **奧卡姆剃刀原則（Occam's Razor）**：
-   在商業利潤預測中，**2 個特徵（`R&D Spend` + `Marketing Spend`）** 是性價比與泛化穩定性最高的選擇，既具備 94.74% 的強大解釋力，又避免了行政支出與地理虛擬變數帶來的雜訊過擬合。
-2. **演算法選擇建議**：
-   * 當候選特徵維度較小（如 $< 15$）時，優先採用 **Exhaustive Search（最佳子集法）**，能有效避免貪婪法的局部最優陷阱。
-   * 當特徵維度龐大時，**Lasso (L1 Regularization)** 是兼顧計算效率與稀疏穩定性的首選。
-
----
-
-
+1. **奧卡姆剃刀原則（Occam's Razor）普適成立**：
+   - 無論在新創獲利預測（$k=2$）、波士頓房價（$k=7$）或車輛定價（$k=11$），**適度精簡特徵之模型泛化性能皆顯著優於使用全部候選特徵的未精簡回歸**，證實無關或共線性特徵只會徒增估計方差。
+2. **多重共線性防護（VIF < 5.0）**：
+   - 高相關特徵對（如波士頓的 `tax` 與 `rad`，車輛的 `highway MPG` 與 `city mpg`、`Engine Cylinders` 與 `HP`）會導致係數符號顛倒與估計不穩定。Model B 透過逐項剔除法消除高 VIF 特徵，能在保留逾 95% 預測力的前提下大幅增強模型的經濟與商業解釋性。
+3. **特徵選擇演算法實務選型**：
+   - 特徵數較小（$p \le 12$）時，**Exhaustive Search（最佳子集法）** 能避免貪婪搜尋的局部陷阱。
+   - 特徵數中大型（$p > 15$）時，**Lasso (L1 Regularization)** 與 **Forward SFS** 能兼顧計算效能與稀疏穩健性。
