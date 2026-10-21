@@ -1,0 +1,3795 @@
+{
+  "features": {
+    "crim": {
+      "name": "城鎮人均犯罪率",
+      "desc": "Per capita crime rate by town",
+      "unit": "",
+      "min": 0.01,
+      "max": 88.98,
+      "mean": 3.61,
+      "median": 0.26,
+      "step": 0.01
+    },
+    "zn": {
+      "name": "大坪數住宅用地比例",
+      "desc": "Proportion of residential land zoned for lots over 25,000 sq.ft.",
+      "unit": "%",
+      "min": 0.0,
+      "max": 100.0,
+      "mean": 11.36,
+      "median": 0.0,
+      "step": 0.01
+    },
+    "indus": {
+      "name": "非零售商業用地比例",
+      "desc": "Proportion of non-retail business acres per town",
+      "unit": "%",
+      "min": 0.46,
+      "max": 27.74,
+      "mean": 11.14,
+      "median": 9.69,
+      "step": 0.01
+    },
+    "chas": {
+      "name": "查爾斯河邊界",
+      "desc": "Charles River dummy variable (= 1 if tract bounds river; 0 otherwise)",
+      "unit": "0/1",
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.07,
+      "median": 0.0,
+      "step": 0.01
+    },
+    "nox": {
+      "name": "一氧化氮濃度",
+      "desc": "Nitric oxides concentration (parts per 10 million)",
+      "unit": "ppm",
+      "min": 0.39,
+      "max": 0.87,
+      "mean": 0.55,
+      "median": 0.54,
+      "step": 0.01
+    },
+    "rm": {
+      "name": "每戶平均房間數",
+      "desc": "Average number of rooms per dwelling",
+      "unit": "間",
+      "min": 3.56,
+      "max": 8.78,
+      "mean": 6.28,
+      "median": 6.21,
+      "step": 0.1
+    },
+    "age": {
+      "name": "老舊自住住宅比例",
+      "desc": "Proportion of owner-occupied units built prior to 1940",
+      "unit": "%",
+      "min": 2.9,
+      "max": 100.0,
+      "mean": 68.57,
+      "median": 77.5,
+      "step": 0.01
+    },
+    "dis": {
+      "name": "至五大就業中心距離",
+      "desc": "Weighted distances to five Boston employment centres",
+      "unit": "英里",
+      "min": 1.13,
+      "max": 12.13,
+      "mean": 3.8,
+      "median": 3.21,
+      "step": 0.01
+    },
+    "rad": {
+      "name": "輻射公路便利指數",
+      "desc": "Index of accessibility to radial highways",
+      "unit": "分",
+      "min": 1.0,
+      "max": 24.0,
+      "mean": 9.55,
+      "median": 5.0,
+      "step": 1
+    },
+    "tax": {
+      "name": "不動產稅率",
+      "desc": "Full-value property-tax rate per $10,000",
+      "unit": "/萬美元",
+      "min": 187.0,
+      "max": 711.0,
+      "mean": 408.24,
+      "median": 330.0,
+      "step": 1
+    },
+    "ptratio": {
+      "name": "城鎮師生比例",
+      "desc": "Pupil-teacher ratio by town",
+      "unit": "人/師",
+      "min": 12.6,
+      "max": 22.0,
+      "mean": 18.46,
+      "median": 19.05,
+      "step": 0.1
+    },
+    "b": {
+      "name": "黑人人口比例指標",
+      "desc": "1000(Bk - 0.63)^2 where Bk is the proportion of blacks by town",
+      "unit": "",
+      "min": 0.32,
+      "max": 396.9,
+      "mean": 356.67,
+      "median": 391.44,
+      "step": 0.01
+    },
+    "lstat": {
+      "name": "低收入人口比例",
+      "desc": "Percentage of lower status of the population",
+      "unit": "%",
+      "min": 1.73,
+      "max": 37.97,
+      "mean": 12.65,
+      "median": 11.36,
+      "step": 0.1
+    }
+  },
+  "vif": [
+    {
+      "feature": "tax",
+      "vif": 9.009
+    },
+    {
+      "feature": "rad",
+      "vif": 7.484
+    },
+    {
+      "feature": "nox",
+      "vif": 4.394
+    },
+    {
+      "feature": "indus",
+      "vif": 3.992
+    },
+    {
+      "feature": "dis",
+      "vif": 3.956
+    },
+    {
+      "feature": "age",
+      "vif": 3.101
+    },
+    {
+      "feature": "lstat",
+      "vif": 2.941
+    },
+    {
+      "feature": "zn",
+      "vif": 2.299
+    },
+    {
+      "feature": "rm",
+      "vif": 1.934
+    },
+    {
+      "feature": "ptratio",
+      "vif": 1.799
+    },
+    {
+      "feature": "crim",
+      "vif": 1.792
+    },
+    {
+      "feature": "b",
+      "vif": 1.349
+    },
+    {
+      "feature": "chas",
+      "vif": 1.074
+    }
+  ],
+  "corr": {
+    "columns": [
+      "crim",
+      "zn",
+      "indus",
+      "chas",
+      "nox",
+      "rm",
+      "age",
+      "dis",
+      "rad",
+      "tax",
+      "ptratio",
+      "b",
+      "lstat",
+      "medv"
+    ],
+    "values": [
+      [
+        1.0,
+        -0.2,
+        0.407,
+        -0.056,
+        0.421,
+        -0.219,
+        0.353,
+        -0.38,
+        0.626,
+        0.583,
+        0.29,
+        -0.385,
+        0.456,
+        -0.388
+      ],
+      [
+        -0.2,
+        1.0,
+        -0.534,
+        -0.043,
+        -0.517,
+        0.312,
+        -0.57,
+        0.664,
+        -0.312,
+        -0.315,
+        -0.392,
+        0.176,
+        -0.413,
+        0.36
+      ],
+      [
+        0.407,
+        -0.534,
+        1.0,
+        0.063,
+        0.764,
+        -0.392,
+        0.645,
+        -0.708,
+        0.595,
+        0.721,
+        0.383,
+        -0.357,
+        0.604,
+        -0.484
+      ],
+      [
+        -0.056,
+        -0.043,
+        0.063,
+        1.0,
+        0.091,
+        0.091,
+        0.087,
+        -0.099,
+        -0.007,
+        -0.036,
+        -0.122,
+        0.049,
+        -0.054,
+        0.175
+      ],
+      [
+        0.421,
+        -0.517,
+        0.764,
+        0.091,
+        1.0,
+        -0.302,
+        0.731,
+        -0.769,
+        0.611,
+        0.668,
+        0.189,
+        -0.38,
+        0.591,
+        -0.427
+      ],
+      [
+        -0.219,
+        0.312,
+        -0.392,
+        0.091,
+        -0.302,
+        1.0,
+        -0.24,
+        0.205,
+        -0.21,
+        -0.292,
+        -0.356,
+        0.128,
+        -0.614,
+        0.695
+      ],
+      [
+        0.353,
+        -0.57,
+        0.645,
+        0.087,
+        0.731,
+        -0.24,
+        1.0,
+        -0.748,
+        0.456,
+        0.506,
+        0.262,
+        -0.274,
+        0.602,
+        -0.377
+      ],
+      [
+        -0.38,
+        0.664,
+        -0.708,
+        -0.099,
+        -0.769,
+        0.205,
+        -0.748,
+        1.0,
+        -0.495,
+        -0.534,
+        -0.232,
+        0.292,
+        -0.497,
+        0.25
+      ],
+      [
+        0.626,
+        -0.312,
+        0.595,
+        -0.007,
+        0.611,
+        -0.21,
+        0.456,
+        -0.495,
+        1.0,
+        0.91,
+        0.465,
+        -0.444,
+        0.489,
+        -0.382
+      ],
+      [
+        0.583,
+        -0.315,
+        0.721,
+        -0.036,
+        0.668,
+        -0.292,
+        0.506,
+        -0.534,
+        0.91,
+        1.0,
+        0.461,
+        -0.442,
+        0.544,
+        -0.469
+      ],
+      [
+        0.29,
+        -0.392,
+        0.383,
+        -0.122,
+        0.189,
+        -0.356,
+        0.262,
+        -0.232,
+        0.465,
+        0.461,
+        1.0,
+        -0.177,
+        0.374,
+        -0.508
+      ],
+      [
+        -0.385,
+        0.176,
+        -0.357,
+        0.049,
+        -0.38,
+        0.128,
+        -0.274,
+        0.292,
+        -0.444,
+        -0.442,
+        -0.177,
+        1.0,
+        -0.366,
+        0.333
+      ],
+      [
+        0.456,
+        -0.413,
+        0.604,
+        -0.054,
+        0.591,
+        -0.614,
+        0.602,
+        -0.497,
+        0.489,
+        0.544,
+        0.374,
+        -0.366,
+        1.0,
+        -0.738
+      ],
+      [
+        -0.388,
+        0.36,
+        -0.484,
+        0.175,
+        -0.427,
+        0.695,
+        -0.377,
+        0.25,
+        -0.382,
+        -0.469,
+        -0.508,
+        0.333,
+        -0.738,
+        1.0
+      ]
+    ]
+  },
+  "data": {
+    "0": {
+      "meta": {
+        "best_k": 12,
+        "best_rmse": "5.78",
+        "best_r2": "0.5897",
+        "best_features": "crim, zn, indus, chas, nox, rm, dis, rad, tax, ptratio, b, lstat",
+        "k1_rmse": "6.81",
+        "k1_r2": "0.4310",
+        "k1_feature": "lstat",
+        "k_full_rmse": "5.78",
+        "k_full_r2": "0.5892",
+        "total_features": 13
+      },
+      "models": {
+        "best_feature": {
+          "label": "🏆 最佳 12 特徵模型 (crim + zn + indus...)",
+          "intercept": 38.2,
+          "coef": {
+            "crim": -0.1191,
+            "zn": 0.0452,
+            "indus": 0.0058,
+            "chas": 2.3356,
+            "nox": -16.3943,
+            "rm": 3.6895,
+            "dis": -1.3731,
+            "rad": 0.2452,
+            "tax": -0.011,
+            "ptratio": -1.0476,
+            "b": 0.008,
+            "lstat": -0.497
+          },
+          "k": 12
+        },
+        "1_feature": {
+          "label": "1 特徵基線模型 (僅憑 lstat)",
+          "intercept": 34.77,
+          "coef": {
+            "lstat": -0.9565
+          },
+          "k": 1
+        },
+        "3_feature": {
+          "label": "3 特徵模型 (rm + ptratio + lstat)",
+          "intercept": 24.03,
+          "coef": {
+            "rm": 4.2649,
+            "ptratio": -1.1365,
+            "lstat": -0.5755
+          },
+          "k": 3
+        },
+        "5_feature": {
+          "label": "5 特徵精簡模型 (rm + dis + ptratio + b + lstat)",
+          "intercept": 21.71,
+          "coef": {
+            "rm": 4.2775,
+            "dis": -0.4478,
+            "ptratio": -1.1337,
+            "b": 0.0111,
+            "lstat": -0.5854
+          },
+          "k": 5
+        },
+        "full_feature": {
+          "label": "全特徵模型 (全部 13 項特徵)",
+          "intercept": 38.09,
+          "coef": {
+            "crim": -0.1194,
+            "zn": 0.0448,
+            "indus": 0.0055,
+            "chas": 2.3408,
+            "nox": -16.1236,
+            "rm": 3.7087,
+            "age": -0.0031,
+            "dis": -1.3864,
+            "rad": 0.2442,
+            "tax": -0.011,
+            "ptratio": -1.0459,
+            "b": 0.0081,
+            "lstat": -0.4928
+          },
+          "k": 13
+        }
+      },
+      "algorithms": {
+        "Lasso": {
+          "name": "Lasso (L1 Ranking)",
+          "color": "#1f77b4",
+          "pointStyle": "circle",
+          "data": [
+            {
+              "k": 1,
+              "features": [
+                "lstat"
+              ],
+              "rmse": 6.81,
+              "r2": 0.431,
+              "mae": 4.86,
+              "status": "poor",
+              "desc": "Lasso (L1 Ranking) k=1"
+            },
+            {
+              "k": 2,
+              "features": [
+                "lstat",
+                "dis"
+              ],
+              "rmse": 6.58,
+              "r2": 0.468,
+              "mae": 4.75,
+              "status": "poor",
+              "desc": "Lasso (L1 Ranking) k=2"
+            },
+            {
+              "k": 3,
+              "features": [
+                "lstat",
+                "dis",
+                "rm"
+              ],
+              "rmse": 5.97,
+              "r2": 0.562,
+              "mae": 4.08,
+              "status": "warn",
+              "desc": "Lasso (L1 Ranking) k=3"
+            },
+            {
+              "k": 4,
+              "features": [
+                "lstat",
+                "dis",
+                "rm",
+                "ptratio"
+              ],
+              "rmse": 6.25,
+              "r2": 0.5195,
+              "mae": 4.3,
+              "status": "warn",
+              "desc": "Lasso (L1 Ranking) k=4"
+            },
+            {
+              "k": 5,
+              "features": [
+                "lstat",
+                "dis",
+                "rm",
+                "ptratio",
+                "rad"
+              ],
+              "rmse": 6.35,
+              "r2": 0.5047,
+              "mae": 4.31,
+              "status": "warn",
+              "desc": "Lasso (L1 Ranking) k=5"
+            },
+            {
+              "k": 6,
+              "features": [
+                "lstat",
+                "dis",
+                "rm",
+                "ptratio",
+                "rad",
+                "nox"
+              ],
+              "rmse": 6.13,
+              "r2": 0.5383,
+              "mae": 4.21,
+              "status": "warn",
+              "desc": "Lasso (L1 Ranking) k=6"
+            },
+            {
+              "k": 7,
+              "features": [
+                "lstat",
+                "dis",
+                "rm",
+                "ptratio",
+                "rad",
+                "nox",
+                "tax"
+              ],
+              "rmse": 6.06,
+              "r2": 0.5495,
+              "mae": 4.12,
+              "status": "warn",
+              "desc": "Lasso (L1 Ranking) k=7"
+            },
+            {
+              "k": 8,
+              "features": [
+                "lstat",
+                "dis",
+                "rm",
+                "ptratio",
+                "rad",
+                "nox",
+                "tax",
+                "zn"
+              ],
+              "rmse": 6.02,
+              "r2": 0.5555,
+              "mae": 4.04,
+              "status": "warn",
+              "desc": "Lasso (L1 Ranking) k=8"
+            },
+            {
+              "k": 9,
+              "features": [
+                "lstat",
+                "dis",
+                "rm",
+                "ptratio",
+                "rad",
+                "nox",
+                "tax",
+                "zn",
+                "crim"
+              ],
+              "rmse": 5.94,
+              "r2": 0.5672,
+              "mae": 3.95,
+              "status": "warn",
+              "desc": "Lasso (L1 Ranking) k=9"
+            },
+            {
+              "k": 10,
+              "features": [
+                "lstat",
+                "dis",
+                "rm",
+                "ptratio",
+                "rad",
+                "nox",
+                "tax",
+                "zn",
+                "crim",
+                "b"
+              ],
+              "rmse": 5.85,
+              "r2": 0.5795,
+              "mae": 3.84,
+              "status": "warn",
+              "desc": "Lasso (L1 Ranking) k=10"
+            },
+            {
+              "k": 11,
+              "features": [
+                "lstat",
+                "dis",
+                "rm",
+                "ptratio",
+                "rad",
+                "nox",
+                "tax",
+                "zn",
+                "crim",
+                "b",
+                "chas"
+              ],
+              "rmse": 5.78,
+              "r2": 0.5895,
+              "mae": 3.84,
+              "status": "warn",
+              "desc": "Lasso (L1 Ranking) k=11"
+            },
+            {
+              "k": 12,
+              "features": [
+                "lstat",
+                "dis",
+                "rm",
+                "ptratio",
+                "rad",
+                "nox",
+                "tax",
+                "zn",
+                "crim",
+                "b",
+                "chas",
+                "age"
+              ],
+              "rmse": 5.78,
+              "r2": 0.5891,
+              "mae": 3.85,
+              "status": "warn",
+              "desc": "Lasso (L1 Ranking) k=12"
+            },
+            {
+              "k": 13,
+              "features": [
+                "lstat",
+                "dis",
+                "rm",
+                "ptratio",
+                "rad",
+                "nox",
+                "tax",
+                "zn",
+                "crim",
+                "b",
+                "chas",
+                "age",
+                "indus"
+              ],
+              "rmse": 5.78,
+              "r2": 0.5892,
+              "mae": 3.84,
+              "status": "warn",
+              "desc": "Lasso (L1 Ranking) k=13"
+            }
+          ]
+        },
+        "Sequential_Selection": {
+          "name": "Forward SFS",
+          "color": "#ff7f0e",
+          "pointStyle": "rect",
+          "data": [
+            {
+              "k": 1,
+              "features": [
+                "lstat"
+              ],
+              "rmse": 6.81,
+              "r2": 0.431,
+              "mae": 4.86,
+              "status": "poor",
+              "desc": "Forward SFS k=1"
+            },
+            {
+              "k": 2,
+              "features": [
+                "ptratio",
+                "lstat"
+              ],
+              "rmse": 7.18,
+              "r2": 0.3677,
+              "mae": 5.14,
+              "status": "poor",
+              "desc": "Forward SFS k=2"
+            },
+            {
+              "k": 3,
+              "features": [
+                "rm",
+                "ptratio",
+                "lstat"
+              ],
+              "rmse": 6.46,
+              "r2": 0.4882,
+              "mae": 4.4,
+              "status": "poor",
+              "desc": "Forward SFS k=3"
+            },
+            {
+              "k": 4,
+              "features": [
+                "rm",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 6.38,
+              "r2": 0.4996,
+              "mae": 4.22,
+              "status": "poor",
+              "desc": "Forward SFS k=4"
+            },
+            {
+              "k": 5,
+              "features": [
+                "rm",
+                "dis",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 6.13,
+              "r2": 0.5387,
+              "mae": 4.08,
+              "status": "warn",
+              "desc": "Forward SFS k=5"
+            },
+            {
+              "k": 6,
+              "features": [
+                "nox",
+                "rm",
+                "dis",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 6.05,
+              "r2": 0.5498,
+              "mae": 4.04,
+              "status": "warn",
+              "desc": "Forward SFS k=6"
+            },
+            {
+              "k": 7,
+              "features": [
+                "chas",
+                "nox",
+                "rm",
+                "dis",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 5.97,
+              "r2": 0.5619,
+              "mae": 4.04,
+              "status": "warn",
+              "desc": "Forward SFS k=7"
+            },
+            {
+              "k": 8,
+              "features": [
+                "crim",
+                "chas",
+                "nox",
+                "rm",
+                "dis",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 6.02,
+              "r2": 0.5556,
+              "mae": 4.01,
+              "status": "warn",
+              "desc": "Forward SFS k=8"
+            },
+            {
+              "k": 9,
+              "features": [
+                "crim",
+                "zn",
+                "chas",
+                "nox",
+                "rm",
+                "dis",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 5.96,
+              "r2": 0.564,
+              "mae": 3.96,
+              "status": "warn",
+              "desc": "Forward SFS k=9"
+            },
+            {
+              "k": 10,
+              "features": [
+                "crim",
+                "zn",
+                "indus",
+                "chas",
+                "nox",
+                "rm",
+                "dis",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 5.97,
+              "r2": 0.5622,
+              "mae": 3.96,
+              "status": "warn",
+              "desc": "Forward SFS k=10"
+            },
+            {
+              "k": 11,
+              "features": [
+                "crim",
+                "zn",
+                "indus",
+                "chas",
+                "nox",
+                "rm",
+                "dis",
+                "rad",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 5.86,
+              "r2": 0.5785,
+              "mae": 3.95,
+              "status": "warn",
+              "desc": "Forward SFS k=11"
+            },
+            {
+              "k": 12,
+              "features": [
+                "crim",
+                "zn",
+                "indus",
+                "chas",
+                "nox",
+                "rm",
+                "dis",
+                "rad",
+                "tax",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 5.78,
+              "r2": 0.5897,
+              "mae": 3.84,
+              "status": "warn",
+              "desc": "Forward SFS k=12"
+            },
+            {
+              "k": 13,
+              "features": [
+                "crim",
+                "zn",
+                "indus",
+                "chas",
+                "nox",
+                "rm",
+                "age",
+                "dis",
+                "rad",
+                "tax",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 5.78,
+              "r2": 0.5892,
+              "mae": 3.84,
+              "status": "warn",
+              "desc": "Forward SFS k=13"
+            }
+          ]
+        },
+        "RFE": {
+          "name": "RFE",
+          "color": "#2ca02c",
+          "pointStyle": "triangle",
+          "data": [
+            {
+              "k": 1,
+              "features": [
+                "lstat"
+              ],
+              "rmse": 6.81,
+              "r2": 0.431,
+              "mae": 4.86,
+              "status": "poor",
+              "desc": "RFE k=1"
+            },
+            {
+              "k": 2,
+              "features": [
+                "rm",
+                "lstat"
+              ],
+              "rmse": 6.11,
+              "r2": 0.5409,
+              "mae": 4.14,
+              "status": "warn",
+              "desc": "RFE k=2"
+            },
+            {
+              "k": 3,
+              "features": [
+                "rm",
+                "ptratio",
+                "lstat"
+              ],
+              "rmse": 6.46,
+              "r2": 0.4882,
+              "mae": 4.4,
+              "status": "poor",
+              "desc": "RFE k=3"
+            },
+            {
+              "k": 4,
+              "features": [
+                "rm",
+                "dis",
+                "ptratio",
+                "lstat"
+              ],
+              "rmse": 6.25,
+              "r2": 0.5195,
+              "mae": 4.3,
+              "status": "warn",
+              "desc": "RFE k=4"
+            },
+            {
+              "k": 5,
+              "features": [
+                "nox",
+                "rm",
+                "dis",
+                "ptratio",
+                "lstat"
+              ],
+              "rmse": 6.15,
+              "r2": 0.5353,
+              "mae": 4.21,
+              "status": "warn",
+              "desc": "RFE k=5"
+            },
+            {
+              "k": 6,
+              "features": [
+                "nox",
+                "rm",
+                "dis",
+                "tax",
+                "ptratio",
+                "lstat"
+              ],
+              "rmse": 6.18,
+              "r2": 0.5306,
+              "mae": 4.18,
+              "status": "warn",
+              "desc": "RFE k=6"
+            },
+            {
+              "k": 7,
+              "features": [
+                "nox",
+                "rm",
+                "dis",
+                "rad",
+                "tax",
+                "ptratio",
+                "lstat"
+              ],
+              "rmse": 6.06,
+              "r2": 0.5495,
+              "mae": 4.12,
+              "status": "warn",
+              "desc": "RFE k=7"
+            },
+            {
+              "k": 8,
+              "features": [
+                "zn",
+                "nox",
+                "rm",
+                "dis",
+                "rad",
+                "tax",
+                "ptratio",
+                "lstat"
+              ],
+              "rmse": 6.02,
+              "r2": 0.5555,
+              "mae": 4.04,
+              "status": "warn",
+              "desc": "RFE k=8"
+            },
+            {
+              "k": 9,
+              "features": [
+                "crim",
+                "zn",
+                "nox",
+                "rm",
+                "dis",
+                "rad",
+                "tax",
+                "ptratio",
+                "lstat"
+              ],
+              "rmse": 5.94,
+              "r2": 0.5672,
+              "mae": 3.95,
+              "status": "warn",
+              "desc": "RFE k=9"
+            },
+            {
+              "k": 10,
+              "features": [
+                "crim",
+                "zn",
+                "nox",
+                "rm",
+                "dis",
+                "rad",
+                "tax",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 5.85,
+              "r2": 0.5795,
+              "mae": 3.84,
+              "status": "warn",
+              "desc": "RFE k=10"
+            },
+            {
+              "k": 11,
+              "features": [
+                "crim",
+                "zn",
+                "chas",
+                "nox",
+                "rm",
+                "dis",
+                "rad",
+                "tax",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 5.78,
+              "r2": 0.5895,
+              "mae": 3.84,
+              "status": "warn",
+              "desc": "RFE k=11"
+            },
+            {
+              "k": 12,
+              "features": [
+                "crim",
+                "zn",
+                "chas",
+                "nox",
+                "rm",
+                "age",
+                "dis",
+                "rad",
+                "tax",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 5.78,
+              "r2": 0.5891,
+              "mae": 3.85,
+              "status": "warn",
+              "desc": "RFE k=12"
+            },
+            {
+              "k": 13,
+              "features": [
+                "crim",
+                "zn",
+                "indus",
+                "chas",
+                "nox",
+                "rm",
+                "age",
+                "dis",
+                "rad",
+                "tax",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 5.78,
+              "r2": 0.5892,
+              "mae": 3.84,
+              "status": "warn",
+              "desc": "RFE k=13"
+            }
+          ]
+        },
+        "ElasticNet": {
+          "name": "ElasticNet Ranking",
+          "color": "#d62728",
+          "pointStyle": "rectRot",
+          "data": [
+            {
+              "k": 1,
+              "features": [
+                "lstat"
+              ],
+              "rmse": 6.81,
+              "r2": 0.431,
+              "mae": 4.86,
+              "status": "poor",
+              "desc": "ElasticNet Ranking k=1"
+            },
+            {
+              "k": 2,
+              "features": [
+                "lstat",
+                "dis"
+              ],
+              "rmse": 6.58,
+              "r2": 0.468,
+              "mae": 4.75,
+              "status": "poor",
+              "desc": "ElasticNet Ranking k=2"
+            },
+            {
+              "k": 3,
+              "features": [
+                "lstat",
+                "dis",
+                "rm"
+              ],
+              "rmse": 5.97,
+              "r2": 0.562,
+              "mae": 4.08,
+              "status": "warn",
+              "desc": "ElasticNet Ranking k=3"
+            },
+            {
+              "k": 4,
+              "features": [
+                "lstat",
+                "dis",
+                "rm",
+                "ptratio"
+              ],
+              "rmse": 6.25,
+              "r2": 0.5195,
+              "mae": 4.3,
+              "status": "warn",
+              "desc": "ElasticNet Ranking k=4"
+            },
+            {
+              "k": 5,
+              "features": [
+                "lstat",
+                "dis",
+                "rm",
+                "ptratio",
+                "rad"
+              ],
+              "rmse": 6.35,
+              "r2": 0.5047,
+              "mae": 4.31,
+              "status": "warn",
+              "desc": "ElasticNet Ranking k=5"
+            },
+            {
+              "k": 6,
+              "features": [
+                "lstat",
+                "dis",
+                "rm",
+                "ptratio",
+                "rad",
+                "nox"
+              ],
+              "rmse": 6.13,
+              "r2": 0.5383,
+              "mae": 4.21,
+              "status": "warn",
+              "desc": "ElasticNet Ranking k=6"
+            },
+            {
+              "k": 7,
+              "features": [
+                "lstat",
+                "dis",
+                "rm",
+                "ptratio",
+                "rad",
+                "nox",
+                "tax"
+              ],
+              "rmse": 6.06,
+              "r2": 0.5495,
+              "mae": 4.12,
+              "status": "warn",
+              "desc": "ElasticNet Ranking k=7"
+            },
+            {
+              "k": 8,
+              "features": [
+                "lstat",
+                "dis",
+                "rm",
+                "ptratio",
+                "rad",
+                "nox",
+                "tax",
+                "zn"
+              ],
+              "rmse": 6.02,
+              "r2": 0.5555,
+              "mae": 4.04,
+              "status": "warn",
+              "desc": "ElasticNet Ranking k=8"
+            },
+            {
+              "k": 9,
+              "features": [
+                "lstat",
+                "dis",
+                "rm",
+                "ptratio",
+                "rad",
+                "nox",
+                "tax",
+                "zn",
+                "crim"
+              ],
+              "rmse": 5.94,
+              "r2": 0.5672,
+              "mae": 3.95,
+              "status": "warn",
+              "desc": "ElasticNet Ranking k=9"
+            },
+            {
+              "k": 10,
+              "features": [
+                "lstat",
+                "dis",
+                "rm",
+                "ptratio",
+                "rad",
+                "nox",
+                "tax",
+                "zn",
+                "crim",
+                "b"
+              ],
+              "rmse": 5.85,
+              "r2": 0.5795,
+              "mae": 3.84,
+              "status": "warn",
+              "desc": "ElasticNet Ranking k=10"
+            },
+            {
+              "k": 11,
+              "features": [
+                "lstat",
+                "dis",
+                "rm",
+                "ptratio",
+                "rad",
+                "nox",
+                "tax",
+                "zn",
+                "crim",
+                "b",
+                "chas"
+              ],
+              "rmse": 5.78,
+              "r2": 0.5895,
+              "mae": 3.84,
+              "status": "warn",
+              "desc": "ElasticNet Ranking k=11"
+            },
+            {
+              "k": 12,
+              "features": [
+                "lstat",
+                "dis",
+                "rm",
+                "ptratio",
+                "rad",
+                "nox",
+                "tax",
+                "zn",
+                "crim",
+                "b",
+                "chas",
+                "age"
+              ],
+              "rmse": 5.78,
+              "r2": 0.5891,
+              "mae": 3.85,
+              "status": "warn",
+              "desc": "ElasticNet Ranking k=12"
+            },
+            {
+              "k": 13,
+              "features": [
+                "lstat",
+                "dis",
+                "rm",
+                "ptratio",
+                "rad",
+                "nox",
+                "tax",
+                "zn",
+                "crim",
+                "b",
+                "chas",
+                "age",
+                "indus"
+              ],
+              "rmse": 5.78,
+              "r2": 0.5892,
+              "mae": 3.84,
+              "status": "warn",
+              "desc": "ElasticNet Ranking k=13"
+            }
+          ]
+        },
+        "Exhaustive_Search": {
+          "name": "Exhaustive Search",
+          "color": "#9467bd",
+          "pointStyle": "triangle",
+          "data": [
+            {
+              "k": 1,
+              "features": [
+                "lstat"
+              ],
+              "rmse": 6.81,
+              "r2": 0.431,
+              "mae": 4.86,
+              "status": "poor",
+              "desc": "Exhaustive Search k=1"
+            },
+            {
+              "k": 2,
+              "features": [
+                "ptratio",
+                "lstat"
+              ],
+              "rmse": 7.18,
+              "r2": 0.3677,
+              "mae": 5.14,
+              "status": "poor",
+              "desc": "Exhaustive Search k=2"
+            },
+            {
+              "k": 3,
+              "features": [
+                "rm",
+                "ptratio",
+                "lstat"
+              ],
+              "rmse": 6.46,
+              "r2": 0.4882,
+              "mae": 4.4,
+              "status": "poor",
+              "desc": "Exhaustive Search k=3"
+            },
+            {
+              "k": 4,
+              "features": [
+                "rm",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 6.38,
+              "r2": 0.4996,
+              "mae": 4.22,
+              "status": "poor",
+              "desc": "Exhaustive Search k=4"
+            },
+            {
+              "k": 5,
+              "features": [
+                "rm",
+                "nox",
+                "dis",
+                "lstat",
+                "ptratio"
+              ],
+              "rmse": 6.15,
+              "r2": 0.5353,
+              "mae": 4.21,
+              "status": "warn",
+              "desc": "Exhaustive Search k=5"
+            },
+            {
+              "k": 6,
+              "features": [
+                "rm",
+                "nox",
+                "dis",
+                "lstat",
+                "b",
+                "ptratio"
+              ],
+              "rmse": 6.05,
+              "r2": 0.5498,
+              "mae": 4.04,
+              "status": "warn",
+              "desc": "Exhaustive Search k=6"
+            },
+            {
+              "k": 7,
+              "features": [
+                "rm",
+                "chas",
+                "nox",
+                "dis",
+                "lstat",
+                "b",
+                "ptratio"
+              ],
+              "rmse": 5.97,
+              "r2": 0.5619,
+              "mae": 4.04,
+              "status": "warn",
+              "desc": "Exhaustive Search k=7"
+            },
+            {
+              "k": 8,
+              "features": [
+                "tax",
+                "rm",
+                "nox",
+                "dis",
+                "crim",
+                "lstat",
+                "rad",
+                "ptratio"
+              ],
+              "rmse": 5.99,
+              "r2": 0.5593,
+              "mae": 4.04,
+              "status": "warn",
+              "desc": "Exhaustive Search k=8"
+            },
+            {
+              "k": 9,
+              "features": [
+                "tax",
+                "rm",
+                "nox",
+                "dis",
+                "crim",
+                "lstat",
+                "rad",
+                "b",
+                "ptratio"
+              ],
+              "rmse": 5.91,
+              "r2": 0.5716,
+              "mae": 3.93,
+              "status": "warn",
+              "desc": "Exhaustive Search k=9"
+            },
+            {
+              "k": 10,
+              "features": [
+                "tax",
+                "rm",
+                "zn",
+                "nox",
+                "dis",
+                "crim",
+                "lstat",
+                "rad",
+                "b",
+                "ptratio"
+              ],
+              "rmse": 5.85,
+              "r2": 0.5795,
+              "mae": 3.84,
+              "status": "warn",
+              "desc": "Exhaustive Search k=10"
+            },
+            {
+              "k": 11,
+              "features": [
+                "crim",
+                "zn",
+                "chas",
+                "nox",
+                "rm",
+                "dis",
+                "rad",
+                "tax",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 5.78,
+              "r2": 0.5895,
+              "mae": 3.84,
+              "status": "warn",
+              "desc": "Exhaustive Search k=11"
+            },
+            {
+              "k": 12,
+              "features": [
+                "crim",
+                "zn",
+                "indus",
+                "chas",
+                "nox",
+                "rm",
+                "dis",
+                "rad",
+                "tax",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 5.78,
+              "r2": 0.5897,
+              "mae": 3.84,
+              "status": "warn",
+              "desc": "Exhaustive Search k=12"
+            },
+            {
+              "k": 13,
+              "features": [
+                "crim",
+                "zn",
+                "indus",
+                "chas",
+                "nox",
+                "rm",
+                "age",
+                "dis",
+                "rad",
+                "tax",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 5.78,
+              "r2": 0.5892,
+              "mae": 3.84,
+              "status": "warn",
+              "desc": "Exhaustive Search k=13"
+            }
+          ]
+        },
+        "SelectKBest": {
+          "name": "SelectKBest (Filter)",
+          "color": "#06b6d4",
+          "pointStyle": "cross",
+          "data": [
+            {
+              "k": 1,
+              "features": [
+                "lstat"
+              ],
+              "rmse": 6.81,
+              "r2": 0.431,
+              "mae": 4.86,
+              "status": "poor",
+              "desc": "SelectKBest (Filter) k=1"
+            },
+            {
+              "k": 2,
+              "features": [
+                "lstat",
+                "rm"
+              ],
+              "rmse": 6.11,
+              "r2": 0.5409,
+              "mae": 4.14,
+              "status": "warn",
+              "desc": "SelectKBest (Filter) k=2"
+            },
+            {
+              "k": 3,
+              "features": [
+                "lstat",
+                "rm",
+                "ptratio"
+              ],
+              "rmse": 6.46,
+              "r2": 0.4882,
+              "mae": 4.4,
+              "status": "poor",
+              "desc": "SelectKBest (Filter) k=3"
+            },
+            {
+              "k": 4,
+              "features": [
+                "lstat",
+                "rm",
+                "ptratio",
+                "indus"
+              ],
+              "rmse": 6.48,
+              "r2": 0.4845,
+              "mae": 4.41,
+              "status": "poor",
+              "desc": "SelectKBest (Filter) k=4"
+            },
+            {
+              "k": 5,
+              "features": [
+                "lstat",
+                "rm",
+                "ptratio",
+                "indus",
+                "tax"
+              ],
+              "rmse": 6.53,
+              "r2": 0.4755,
+              "mae": 4.39,
+              "status": "poor",
+              "desc": "SelectKBest (Filter) k=5"
+            },
+            {
+              "k": 6,
+              "features": [
+                "lstat",
+                "rm",
+                "ptratio",
+                "indus",
+                "tax",
+                "nox"
+              ],
+              "rmse": 6.53,
+              "r2": 0.4762,
+              "mae": 4.39,
+              "status": "poor",
+              "desc": "SelectKBest (Filter) k=6"
+            },
+            {
+              "k": 7,
+              "features": [
+                "lstat",
+                "rm",
+                "ptratio",
+                "indus",
+                "tax",
+                "nox",
+                "rad"
+              ],
+              "rmse": 6.37,
+              "r2": 0.5016,
+              "mae": 4.28,
+              "status": "warn",
+              "desc": "SelectKBest (Filter) k=7"
+            },
+            {
+              "k": 8,
+              "features": [
+                "lstat",
+                "rm",
+                "ptratio",
+                "indus",
+                "tax",
+                "nox",
+                "rad",
+                "age"
+              ],
+              "rmse": 6.31,
+              "r2": 0.5116,
+              "mae": 4.32,
+              "status": "warn",
+              "desc": "SelectKBest (Filter) k=8"
+            },
+            {
+              "k": 9,
+              "features": [
+                "lstat",
+                "rm",
+                "ptratio",
+                "indus",
+                "tax",
+                "nox",
+                "rad",
+                "age",
+                "crim"
+              ],
+              "rmse": 6.27,
+              "r2": 0.5175,
+              "mae": 4.23,
+              "status": "warn",
+              "desc": "SelectKBest (Filter) k=9"
+            },
+            {
+              "k": 10,
+              "features": [
+                "lstat",
+                "rm",
+                "ptratio",
+                "indus",
+                "tax",
+                "nox",
+                "rad",
+                "age",
+                "crim",
+                "zn"
+              ],
+              "rmse": 6.27,
+              "r2": 0.5173,
+              "mae": 4.23,
+              "status": "warn",
+              "desc": "SelectKBest (Filter) k=10"
+            },
+            {
+              "k": 11,
+              "features": [
+                "lstat",
+                "rm",
+                "ptratio",
+                "indus",
+                "tax",
+                "nox",
+                "rad",
+                "age",
+                "crim",
+                "zn",
+                "b"
+              ],
+              "rmse": 6.19,
+              "r2": 0.5288,
+              "mae": 4.12,
+              "status": "warn",
+              "desc": "SelectKBest (Filter) k=11"
+            },
+            {
+              "k": 12,
+              "features": [
+                "lstat",
+                "rm",
+                "ptratio",
+                "indus",
+                "tax",
+                "nox",
+                "rad",
+                "age",
+                "crim",
+                "zn",
+                "b",
+                "dis"
+              ],
+              "rmse": 5.85,
+              "r2": 0.5798,
+              "mae": 3.84,
+              "status": "warn",
+              "desc": "SelectKBest (Filter) k=12"
+            },
+            {
+              "k": 13,
+              "features": [
+                "lstat",
+                "rm",
+                "ptratio",
+                "indus",
+                "tax",
+                "nox",
+                "rad",
+                "age",
+                "crim",
+                "zn",
+                "b",
+                "dis",
+                "chas"
+              ],
+              "rmse": 5.78,
+              "r2": 0.5892,
+              "mae": 3.84,
+              "status": "warn",
+              "desc": "SelectKBest (Filter) k=13"
+            }
+          ]
+        },
+        "VIF": {
+          "name": "VIF (Collinearity Diagnostic)",
+          "color": "#f43f5e",
+          "pointStyle": "crossRot",
+          "data": [
+            {
+              "k": 1,
+              "features": [
+                "b"
+              ],
+              "rmse": 8.82,
+              "r2": 0.0451,
+              "mae": 6.09,
+              "status": "poor",
+              "desc": "VIF (Collinearity Diagnostic) k=1"
+            },
+            {
+              "k": 2,
+              "features": [
+                "chas",
+                "b"
+              ],
+              "rmse": 8.64,
+              "r2": 0.0836,
+              "mae": 6.06,
+              "status": "poor",
+              "desc": "VIF (Collinearity Diagnostic) k=2"
+            },
+            {
+              "k": 3,
+              "features": [
+                "chas",
+                "ptratio",
+                "b"
+              ],
+              "rmse": 8.87,
+              "r2": 0.0334,
+              "mae": 6.36,
+              "status": "poor",
+              "desc": "VIF (Collinearity Diagnostic) k=3"
+            },
+            {
+              "k": 4,
+              "features": [
+                "chas",
+                "age",
+                "ptratio",
+                "b"
+              ],
+              "rmse": 8.92,
+              "r2": 0.0229,
+              "mae": 6.35,
+              "status": "poor",
+              "desc": "VIF (Collinearity Diagnostic) k=4"
+            },
+            {
+              "k": 5,
+              "features": [
+                "chas",
+                "rm",
+                "age",
+                "ptratio",
+                "b"
+              ],
+              "rmse": 6.89,
+              "r2": 0.4166,
+              "mae": 4.35,
+              "status": "poor",
+              "desc": "VIF (Collinearity Diagnostic) k=5"
+            },
+            {
+              "k": 6,
+              "features": [
+                "crim",
+                "chas",
+                "rm",
+                "age",
+                "ptratio",
+                "b"
+              ],
+              "rmse": 7.06,
+              "r2": 0.3873,
+              "mae": 4.5,
+              "status": "poor",
+              "desc": "VIF (Collinearity Diagnostic) k=6"
+            },
+            {
+              "k": 7,
+              "features": [
+                "crim",
+                "zn",
+                "chas",
+                "rm",
+                "age",
+                "ptratio",
+                "b"
+              ],
+              "rmse": 7.06,
+              "r2": 0.3873,
+              "mae": 4.5,
+              "status": "poor",
+              "desc": "VIF (Collinearity Diagnostic) k=7"
+            },
+            {
+              "k": 8,
+              "features": [
+                "crim",
+                "zn",
+                "indus",
+                "chas",
+                "rm",
+                "age",
+                "ptratio",
+                "b"
+              ],
+              "rmse": 7.06,
+              "r2": 0.3886,
+              "mae": 4.5,
+              "status": "poor",
+              "desc": "VIF (Collinearity Diagnostic) k=8"
+            },
+            {
+              "k": 9,
+              "features": [
+                "crim",
+                "zn",
+                "indus",
+                "chas",
+                "rm",
+                "age",
+                "rad",
+                "ptratio",
+                "b"
+              ],
+              "rmse": 7.03,
+              "r2": 0.3926,
+              "mae": 4.49,
+              "status": "poor",
+              "desc": "VIF (Collinearity Diagnostic) k=9"
+            },
+            {
+              "k": 10,
+              "features": [
+                "crim",
+                "zn",
+                "indus",
+                "chas",
+                "rm",
+                "age",
+                "rad",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 6.31,
+              "r2": 0.5111,
+              "mae": 4.24,
+              "status": "warn",
+              "desc": "VIF (Collinearity Diagnostic) k=10"
+            },
+            {
+              "k": 11,
+              "features": [
+                "crim",
+                "zn",
+                "indus",
+                "chas",
+                "rm",
+                "age",
+                "dis",
+                "rad",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 6.07,
+              "r2": 0.5478,
+              "mae": 4.04,
+              "status": "warn",
+              "desc": "VIF (Collinearity Diagnostic) k=11"
+            },
+            {
+              "k": 12,
+              "features": [
+                "crim",
+                "zn",
+                "indus",
+                "chas",
+                "nox",
+                "rm",
+                "age",
+                "dis",
+                "rad",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 5.86,
+              "r2": 0.578,
+              "mae": 3.95,
+              "status": "warn",
+              "desc": "VIF (Collinearity Diagnostic) k=12"
+            },
+            {
+              "k": 13,
+              "features": [
+                "crim",
+                "zn",
+                "indus",
+                "chas",
+                "nox",
+                "rm",
+                "age",
+                "dis",
+                "rad",
+                "tax",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 5.78,
+              "r2": 0.5892,
+              "mae": 3.84,
+              "status": "warn",
+              "desc": "VIF (Collinearity Diagnostic) k=13"
+            }
+          ]
+        }
+      }
+    },
+    "42": {
+      "meta": {
+        "best_k": 7,
+        "best_rmse": "4.90",
+        "best_r2": "0.6727",
+        "best_features": "nox, rm, dis, rad, tax, ptratio, lstat",
+        "k1_rmse": "5.79",
+        "k1_r2": "0.5429",
+        "k1_feature": "lstat",
+        "k_full_rmse": "4.93",
+        "k_full_r2": "0.6688",
+        "total_features": 13
+      },
+      "models": {
+        "best_feature": {
+          "label": "🏆 最佳 7 特徵模型 (nox + rm + dis...)",
+          "intercept": 36.8,
+          "coef": {
+            "nox": -16.2629,
+            "rm": 4.3786,
+            "dis": -1.2229,
+            "rad": 0.1614,
+            "tax": -0.0098,
+            "ptratio": -0.9981,
+            "lstat": -0.5802
+          },
+          "k": 7
+        },
+        "1_feature": {
+          "label": "1 特徵基線模型 (僅憑 lstat)",
+          "intercept": 34.84,
+          "coef": {
+            "lstat": -0.9665
+          },
+          "k": 1
+        },
+        "3_feature": {
+          "label": "3 特徵模型 (rm + ptratio + lstat)",
+          "intercept": 14.59,
+          "coef": {
+            "rm": 4.9331,
+            "ptratio": -0.8671,
+            "lstat": -0.5671
+          },
+          "k": 3
+        },
+        "5_feature": {
+          "label": "5 特徵精簡模型 (rm + dis + ptratio + b + lstat)",
+          "intercept": 12.27,
+          "coef": {
+            "rm": 4.8974,
+            "dis": -0.6773,
+            "ptratio": -0.8609,
+            "b": 0.0153,
+            "lstat": -0.6032
+          },
+          "k": 5
+        },
+        "full_feature": {
+          "label": "全特徵模型 (全部 13 項特徵)",
+          "intercept": 30.25,
+          "coef": {
+            "crim": -0.1131,
+            "zn": 0.0301,
+            "indus": 0.0404,
+            "chas": 2.7844,
+            "nox": -17.2026,
+            "rm": 4.4388,
+            "age": -0.0063,
+            "dis": -1.4479,
+            "rad": 0.2624,
+            "tax": -0.0106,
+            "ptratio": -0.9155,
+            "b": 0.0124,
+            "lstat": -0.5086
+          },
+          "k": 13
+        }
+      },
+      "algorithms": {
+        "Lasso": {
+          "name": "Lasso (L1 Ranking)",
+          "color": "#1f77b4",
+          "pointStyle": "circle",
+          "data": [
+            {
+              "k": 1,
+              "features": [
+                "lstat"
+              ],
+              "rmse": 5.79,
+              "r2": 0.5429,
+              "mae": 4.18,
+              "status": "warn",
+              "desc": "Lasso (L1 Ranking) k=1"
+            },
+            {
+              "k": 2,
+              "features": [
+                "lstat",
+                "rm"
+              ],
+              "rmse": 5.59,
+              "r2": 0.574,
+              "mae": 3.9,
+              "status": "warn",
+              "desc": "Lasso (L1 Ranking) k=2"
+            },
+            {
+              "k": 3,
+              "features": [
+                "lstat",
+                "rm",
+                "dis"
+              ],
+              "rmse": 5.59,
+              "r2": 0.5736,
+              "mae": 3.91,
+              "status": "warn",
+              "desc": "Lasso (L1 Ranking) k=3"
+            },
+            {
+              "k": 4,
+              "features": [
+                "lstat",
+                "rm",
+                "dis",
+                "rad"
+              ],
+              "rmse": 5.69,
+              "r2": 0.5581,
+              "mae": 3.9,
+              "status": "warn",
+              "desc": "Lasso (L1 Ranking) k=4"
+            },
+            {
+              "k": 5,
+              "features": [
+                "lstat",
+                "rm",
+                "dis",
+                "rad",
+                "ptratio"
+              ],
+              "rmse": 5.25,
+              "r2": 0.6244,
+              "mae": 3.36,
+              "status": "warn",
+              "desc": "Lasso (L1 Ranking) k=5"
+            },
+            {
+              "k": 6,
+              "features": [
+                "lstat",
+                "rm",
+                "dis",
+                "rad",
+                "ptratio",
+                "nox"
+              ],
+              "rmse": 5.0,
+              "r2": 0.6588,
+              "mae": 3.27,
+              "status": "good",
+              "desc": "Lasso (L1 Ranking) k=6"
+            },
+            {
+              "k": 7,
+              "features": [
+                "lstat",
+                "rm",
+                "dis",
+                "rad",
+                "ptratio",
+                "nox",
+                "tax"
+              ],
+              "rmse": 4.9,
+              "r2": 0.6727,
+              "mae": 3.17,
+              "status": "good",
+              "desc": "Lasso (L1 Ranking) k=7"
+            },
+            {
+              "k": 8,
+              "features": [
+                "lstat",
+                "rm",
+                "dis",
+                "rad",
+                "ptratio",
+                "nox",
+                "tax",
+                "b"
+              ],
+              "rmse": 5.05,
+              "r2": 0.6519,
+              "mae": 3.27,
+              "status": "good",
+              "desc": "Lasso (L1 Ranking) k=8"
+            },
+            {
+              "k": 9,
+              "features": [
+                "lstat",
+                "rm",
+                "dis",
+                "rad",
+                "ptratio",
+                "nox",
+                "tax",
+                "b",
+                "crim"
+              ],
+              "rmse": 5.08,
+              "r2": 0.6486,
+              "mae": 3.3,
+              "status": "warn",
+              "desc": "Lasso (L1 Ranking) k=9"
+            },
+            {
+              "k": 10,
+              "features": [
+                "lstat",
+                "rm",
+                "dis",
+                "rad",
+                "ptratio",
+                "nox",
+                "tax",
+                "b",
+                "crim",
+                "chas"
+              ],
+              "rmse": 5.05,
+              "r2": 0.6523,
+              "mae": 3.27,
+              "status": "good",
+              "desc": "Lasso (L1 Ranking) k=10"
+            },
+            {
+              "k": 11,
+              "features": [
+                "lstat",
+                "rm",
+                "dis",
+                "rad",
+                "ptratio",
+                "nox",
+                "tax",
+                "b",
+                "crim",
+                "chas",
+                "zn"
+              ],
+              "rmse": 4.91,
+              "r2": 0.6715,
+              "mae": 3.15,
+              "status": "good",
+              "desc": "Lasso (L1 Ranking) k=11"
+            },
+            {
+              "k": 12,
+              "features": [
+                "lstat",
+                "rm",
+                "dis",
+                "rad",
+                "ptratio",
+                "nox",
+                "tax",
+                "b",
+                "crim",
+                "chas",
+                "zn",
+                "indus"
+              ],
+              "rmse": 4.92,
+              "r2": 0.6702,
+              "mae": 3.18,
+              "status": "good",
+              "desc": "Lasso (L1 Ranking) k=12"
+            },
+            {
+              "k": 13,
+              "features": [
+                "lstat",
+                "rm",
+                "dis",
+                "rad",
+                "ptratio",
+                "nox",
+                "tax",
+                "b",
+                "crim",
+                "chas",
+                "zn",
+                "indus",
+                "age"
+              ],
+              "rmse": 4.93,
+              "r2": 0.6688,
+              "mae": 3.19,
+              "status": "good",
+              "desc": "Lasso (L1 Ranking) k=13"
+            }
+          ]
+        },
+        "Sequential_Selection": {
+          "name": "Forward SFS",
+          "color": "#ff7f0e",
+          "pointStyle": "rect",
+          "data": [
+            {
+              "k": 1,
+              "features": [
+                "lstat"
+              ],
+              "rmse": 5.79,
+              "r2": 0.5429,
+              "mae": 4.18,
+              "status": "warn",
+              "desc": "Forward SFS k=1"
+            },
+            {
+              "k": 2,
+              "features": [
+                "rm",
+                "lstat"
+              ],
+              "rmse": 5.59,
+              "r2": 0.574,
+              "mae": 3.9,
+              "status": "warn",
+              "desc": "Forward SFS k=2"
+            },
+            {
+              "k": 3,
+              "features": [
+                "rm",
+                "ptratio",
+                "lstat"
+              ],
+              "rmse": 5.21,
+              "r2": 0.6303,
+              "mae": 3.33,
+              "status": "warn",
+              "desc": "Forward SFS k=3"
+            },
+            {
+              "k": 4,
+              "features": [
+                "rm",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 5.37,
+              "r2": 0.6071,
+              "mae": 3.4,
+              "status": "warn",
+              "desc": "Forward SFS k=4"
+            },
+            {
+              "k": 5,
+              "features": [
+                "rm",
+                "dis",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 5.37,
+              "r2": 0.6061,
+              "mae": 3.43,
+              "status": "warn",
+              "desc": "Forward SFS k=5"
+            },
+            {
+              "k": 6,
+              "features": [
+                "nox",
+                "rm",
+                "dis",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 5.23,
+              "r2": 0.6272,
+              "mae": 3.41,
+              "status": "warn",
+              "desc": "Forward SFS k=6"
+            },
+            {
+              "k": 7,
+              "features": [
+                "crim",
+                "nox",
+                "rm",
+                "dis",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 5.3,
+              "r2": 0.6175,
+              "mae": 3.45,
+              "status": "warn",
+              "desc": "Forward SFS k=7"
+            },
+            {
+              "k": 8,
+              "features": [
+                "crim",
+                "nox",
+                "rm",
+                "dis",
+                "rad",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 5.18,
+              "r2": 0.6336,
+              "mae": 3.4,
+              "status": "warn",
+              "desc": "Forward SFS k=8"
+            },
+            {
+              "k": 9,
+              "features": [
+                "crim",
+                "nox",
+                "rm",
+                "dis",
+                "rad",
+                "tax",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 5.08,
+              "r2": 0.6486,
+              "mae": 3.3,
+              "status": "warn",
+              "desc": "Forward SFS k=9"
+            },
+            {
+              "k": 10,
+              "features": [
+                "crim",
+                "zn",
+                "nox",
+                "rm",
+                "dis",
+                "rad",
+                "tax",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 4.94,
+              "r2": 0.6673,
+              "mae": 3.19,
+              "status": "good",
+              "desc": "Forward SFS k=10"
+            },
+            {
+              "k": 11,
+              "features": [
+                "crim",
+                "zn",
+                "chas",
+                "nox",
+                "rm",
+                "dis",
+                "rad",
+                "tax",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 4.91,
+              "r2": 0.6715,
+              "mae": 3.15,
+              "status": "good",
+              "desc": "Forward SFS k=11"
+            },
+            {
+              "k": 12,
+              "features": [
+                "crim",
+                "zn",
+                "chas",
+                "nox",
+                "rm",
+                "age",
+                "dis",
+                "rad",
+                "tax",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 4.92,
+              "r2": 0.6702,
+              "mae": 3.16,
+              "status": "good",
+              "desc": "Forward SFS k=12"
+            },
+            {
+              "k": 13,
+              "features": [
+                "crim",
+                "zn",
+                "indus",
+                "chas",
+                "nox",
+                "rm",
+                "age",
+                "dis",
+                "rad",
+                "tax",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 4.93,
+              "r2": 0.6688,
+              "mae": 3.19,
+              "status": "good",
+              "desc": "Forward SFS k=13"
+            }
+          ]
+        },
+        "RFE": {
+          "name": "RFE",
+          "color": "#2ca02c",
+          "pointStyle": "triangle",
+          "data": [
+            {
+              "k": 1,
+              "features": [
+                "lstat"
+              ],
+              "rmse": 5.79,
+              "r2": 0.5429,
+              "mae": 4.18,
+              "status": "warn",
+              "desc": "RFE k=1"
+            },
+            {
+              "k": 2,
+              "features": [
+                "rm",
+                "lstat"
+              ],
+              "rmse": 5.59,
+              "r2": 0.574,
+              "mae": 3.9,
+              "status": "warn",
+              "desc": "RFE k=2"
+            },
+            {
+              "k": 3,
+              "features": [
+                "rm",
+                "ptratio",
+                "lstat"
+              ],
+              "rmse": 5.21,
+              "r2": 0.6303,
+              "mae": 3.33,
+              "status": "warn",
+              "desc": "RFE k=3"
+            },
+            {
+              "k": 4,
+              "features": [
+                "rm",
+                "dis",
+                "ptratio",
+                "lstat"
+              ],
+              "rmse": 5.18,
+              "r2": 0.6348,
+              "mae": 3.34,
+              "status": "warn",
+              "desc": "RFE k=4"
+            },
+            {
+              "k": 5,
+              "features": [
+                "nox",
+                "rm",
+                "dis",
+                "ptratio",
+                "lstat"
+              ],
+              "rmse": 5.02,
+              "r2": 0.6564,
+              "mae": 3.27,
+              "status": "good",
+              "desc": "RFE k=5"
+            },
+            {
+              "k": 6,
+              "features": [
+                "nox",
+                "rm",
+                "dis",
+                "tax",
+                "ptratio",
+                "lstat"
+              ],
+              "rmse": 5.05,
+              "r2": 0.6518,
+              "mae": 3.28,
+              "status": "good",
+              "desc": "RFE k=6"
+            },
+            {
+              "k": 7,
+              "features": [
+                "nox",
+                "rm",
+                "dis",
+                "rad",
+                "tax",
+                "ptratio",
+                "lstat"
+              ],
+              "rmse": 4.9,
+              "r2": 0.6727,
+              "mae": 3.17,
+              "status": "good",
+              "desc": "RFE k=7"
+            },
+            {
+              "k": 8,
+              "features": [
+                "nox",
+                "rm",
+                "dis",
+                "rad",
+                "tax",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 5.05,
+              "r2": 0.6519,
+              "mae": 3.27,
+              "status": "good",
+              "desc": "RFE k=8"
+            },
+            {
+              "k": 9,
+              "features": [
+                "crim",
+                "nox",
+                "rm",
+                "dis",
+                "rad",
+                "tax",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 5.08,
+              "r2": 0.6486,
+              "mae": 3.3,
+              "status": "warn",
+              "desc": "RFE k=9"
+            },
+            {
+              "k": 10,
+              "features": [
+                "crim",
+                "chas",
+                "nox",
+                "rm",
+                "dis",
+                "rad",
+                "tax",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 5.05,
+              "r2": 0.6523,
+              "mae": 3.27,
+              "status": "good",
+              "desc": "RFE k=10"
+            },
+            {
+              "k": 11,
+              "features": [
+                "crim",
+                "zn",
+                "chas",
+                "nox",
+                "rm",
+                "dis",
+                "rad",
+                "tax",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 4.91,
+              "r2": 0.6715,
+              "mae": 3.15,
+              "status": "good",
+              "desc": "RFE k=11"
+            },
+            {
+              "k": 12,
+              "features": [
+                "crim",
+                "zn",
+                "indus",
+                "chas",
+                "nox",
+                "rm",
+                "dis",
+                "rad",
+                "tax",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 4.92,
+              "r2": 0.6702,
+              "mae": 3.18,
+              "status": "good",
+              "desc": "RFE k=12"
+            },
+            {
+              "k": 13,
+              "features": [
+                "crim",
+                "zn",
+                "indus",
+                "chas",
+                "nox",
+                "rm",
+                "age",
+                "dis",
+                "rad",
+                "tax",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 4.93,
+              "r2": 0.6688,
+              "mae": 3.19,
+              "status": "good",
+              "desc": "RFE k=13"
+            }
+          ]
+        },
+        "ElasticNet": {
+          "name": "ElasticNet Ranking",
+          "color": "#d62728",
+          "pointStyle": "rectRot",
+          "data": [
+            {
+              "k": 1,
+              "features": [
+                "lstat"
+              ],
+              "rmse": 5.79,
+              "r2": 0.5429,
+              "mae": 4.18,
+              "status": "warn",
+              "desc": "ElasticNet Ranking k=1"
+            },
+            {
+              "k": 2,
+              "features": [
+                "lstat",
+                "rm"
+              ],
+              "rmse": 5.59,
+              "r2": 0.574,
+              "mae": 3.9,
+              "status": "warn",
+              "desc": "ElasticNet Ranking k=2"
+            },
+            {
+              "k": 3,
+              "features": [
+                "lstat",
+                "rm",
+                "dis"
+              ],
+              "rmse": 5.59,
+              "r2": 0.5736,
+              "mae": 3.91,
+              "status": "warn",
+              "desc": "ElasticNet Ranking k=3"
+            },
+            {
+              "k": 4,
+              "features": [
+                "lstat",
+                "rm",
+                "dis",
+                "ptratio"
+              ],
+              "rmse": 5.18,
+              "r2": 0.6348,
+              "mae": 3.34,
+              "status": "warn",
+              "desc": "ElasticNet Ranking k=4"
+            },
+            {
+              "k": 5,
+              "features": [
+                "lstat",
+                "rm",
+                "dis",
+                "ptratio",
+                "rad"
+              ],
+              "rmse": 5.25,
+              "r2": 0.6244,
+              "mae": 3.36,
+              "status": "warn",
+              "desc": "ElasticNet Ranking k=5"
+            },
+            {
+              "k": 6,
+              "features": [
+                "lstat",
+                "rm",
+                "dis",
+                "ptratio",
+                "rad",
+                "nox"
+              ],
+              "rmse": 5.0,
+              "r2": 0.6588,
+              "mae": 3.27,
+              "status": "good",
+              "desc": "ElasticNet Ranking k=6"
+            },
+            {
+              "k": 7,
+              "features": [
+                "lstat",
+                "rm",
+                "dis",
+                "ptratio",
+                "rad",
+                "nox",
+                "tax"
+              ],
+              "rmse": 4.9,
+              "r2": 0.6727,
+              "mae": 3.17,
+              "status": "good",
+              "desc": "ElasticNet Ranking k=7"
+            },
+            {
+              "k": 8,
+              "features": [
+                "lstat",
+                "rm",
+                "dis",
+                "ptratio",
+                "rad",
+                "nox",
+                "tax",
+                "b"
+              ],
+              "rmse": 5.05,
+              "r2": 0.6519,
+              "mae": 3.27,
+              "status": "good",
+              "desc": "ElasticNet Ranking k=8"
+            },
+            {
+              "k": 9,
+              "features": [
+                "lstat",
+                "rm",
+                "dis",
+                "ptratio",
+                "rad",
+                "nox",
+                "tax",
+                "b",
+                "crim"
+              ],
+              "rmse": 5.08,
+              "r2": 0.6486,
+              "mae": 3.3,
+              "status": "warn",
+              "desc": "ElasticNet Ranking k=9"
+            },
+            {
+              "k": 10,
+              "features": [
+                "lstat",
+                "rm",
+                "dis",
+                "ptratio",
+                "rad",
+                "nox",
+                "tax",
+                "b",
+                "crim",
+                "chas"
+              ],
+              "rmse": 5.05,
+              "r2": 0.6523,
+              "mae": 3.27,
+              "status": "good",
+              "desc": "ElasticNet Ranking k=10"
+            },
+            {
+              "k": 11,
+              "features": [
+                "lstat",
+                "rm",
+                "dis",
+                "ptratio",
+                "rad",
+                "nox",
+                "tax",
+                "b",
+                "crim",
+                "chas",
+                "zn"
+              ],
+              "rmse": 4.91,
+              "r2": 0.6715,
+              "mae": 3.15,
+              "status": "good",
+              "desc": "ElasticNet Ranking k=11"
+            },
+            {
+              "k": 12,
+              "features": [
+                "lstat",
+                "rm",
+                "dis",
+                "ptratio",
+                "rad",
+                "nox",
+                "tax",
+                "b",
+                "crim",
+                "chas",
+                "zn",
+                "age"
+              ],
+              "rmse": 4.92,
+              "r2": 0.6702,
+              "mae": 3.16,
+              "status": "good",
+              "desc": "ElasticNet Ranking k=12"
+            },
+            {
+              "k": 13,
+              "features": [
+                "lstat",
+                "rm",
+                "dis",
+                "ptratio",
+                "rad",
+                "nox",
+                "tax",
+                "b",
+                "crim",
+                "chas",
+                "zn",
+                "age",
+                "indus"
+              ],
+              "rmse": 4.93,
+              "r2": 0.6688,
+              "mae": 3.19,
+              "status": "good",
+              "desc": "ElasticNet Ranking k=13"
+            }
+          ]
+        },
+        "Exhaustive_Search": {
+          "name": "Exhaustive Search",
+          "color": "#9467bd",
+          "pointStyle": "triangle",
+          "data": [
+            {
+              "k": 1,
+              "features": [
+                "lstat"
+              ],
+              "rmse": 5.79,
+              "r2": 0.5429,
+              "mae": 4.18,
+              "status": "warn",
+              "desc": "Exhaustive Search k=1"
+            },
+            {
+              "k": 2,
+              "features": [
+                "rm",
+                "lstat"
+              ],
+              "rmse": 5.59,
+              "r2": 0.574,
+              "mae": 3.9,
+              "status": "warn",
+              "desc": "Exhaustive Search k=2"
+            },
+            {
+              "k": 3,
+              "features": [
+                "rm",
+                "ptratio",
+                "lstat"
+              ],
+              "rmse": 5.21,
+              "r2": 0.6303,
+              "mae": 3.33,
+              "status": "warn",
+              "desc": "Exhaustive Search k=3"
+            },
+            {
+              "k": 4,
+              "features": [
+                "rm",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 5.37,
+              "r2": 0.6071,
+              "mae": 3.4,
+              "status": "warn",
+              "desc": "Exhaustive Search k=4"
+            },
+            {
+              "k": 5,
+              "features": [
+                "rm",
+                "dis",
+                "lstat",
+                "b",
+                "ptratio"
+              ],
+              "rmse": 5.37,
+              "r2": 0.6061,
+              "mae": 3.43,
+              "status": "warn",
+              "desc": "Exhaustive Search k=5"
+            },
+            {
+              "k": 6,
+              "features": [
+                "rm",
+                "nox",
+                "dis",
+                "lstat",
+                "b",
+                "ptratio"
+              ],
+              "rmse": 5.23,
+              "r2": 0.6272,
+              "mae": 3.41,
+              "status": "warn",
+              "desc": "Exhaustive Search k=6"
+            },
+            {
+              "k": 7,
+              "features": [
+                "rm",
+                "nox",
+                "dis",
+                "crim",
+                "lstat",
+                "b",
+                "ptratio"
+              ],
+              "rmse": 5.3,
+              "r2": 0.6175,
+              "mae": 3.45,
+              "status": "warn",
+              "desc": "Exhaustive Search k=7"
+            },
+            {
+              "k": 8,
+              "features": [
+                "rm",
+                "nox",
+                "dis",
+                "crim",
+                "lstat",
+                "rad",
+                "b",
+                "ptratio"
+              ],
+              "rmse": 5.18,
+              "r2": 0.6336,
+              "mae": 3.4,
+              "status": "warn",
+              "desc": "Exhaustive Search k=8"
+            },
+            {
+              "k": 9,
+              "features": [
+                "tax",
+                "rm",
+                "nox",
+                "dis",
+                "crim",
+                "lstat",
+                "rad",
+                "b",
+                "ptratio"
+              ],
+              "rmse": 5.08,
+              "r2": 0.6486,
+              "mae": 3.3,
+              "status": "warn",
+              "desc": "Exhaustive Search k=9"
+            },
+            {
+              "k": 10,
+              "features": [
+                "tax",
+                "rm",
+                "zn",
+                "nox",
+                "dis",
+                "crim",
+                "lstat",
+                "rad",
+                "b",
+                "ptratio"
+              ],
+              "rmse": 4.94,
+              "r2": 0.6673,
+              "mae": 3.19,
+              "status": "good",
+              "desc": "Exhaustive Search k=10"
+            },
+            {
+              "k": 11,
+              "features": [
+                "crim",
+                "zn",
+                "chas",
+                "nox",
+                "rm",
+                "dis",
+                "rad",
+                "tax",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 4.91,
+              "r2": 0.6715,
+              "mae": 3.15,
+              "status": "good",
+              "desc": "Exhaustive Search k=11"
+            },
+            {
+              "k": 12,
+              "features": [
+                "crim",
+                "zn",
+                "chas",
+                "nox",
+                "rm",
+                "age",
+                "dis",
+                "rad",
+                "tax",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 4.92,
+              "r2": 0.6702,
+              "mae": 3.16,
+              "status": "good",
+              "desc": "Exhaustive Search k=12"
+            },
+            {
+              "k": 13,
+              "features": [
+                "crim",
+                "zn",
+                "indus",
+                "chas",
+                "nox",
+                "rm",
+                "age",
+                "dis",
+                "rad",
+                "tax",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 4.93,
+              "r2": 0.6688,
+              "mae": 3.19,
+              "status": "good",
+              "desc": "Exhaustive Search k=13"
+            }
+          ]
+        },
+        "SelectKBest": {
+          "name": "SelectKBest (Filter)",
+          "color": "#06b6d4",
+          "pointStyle": "cross",
+          "data": [
+            {
+              "k": 1,
+              "features": [
+                "lstat"
+              ],
+              "rmse": 5.79,
+              "r2": 0.5429,
+              "mae": 4.18,
+              "status": "warn",
+              "desc": "SelectKBest (Filter) k=1"
+            },
+            {
+              "k": 2,
+              "features": [
+                "lstat",
+                "rm"
+              ],
+              "rmse": 5.59,
+              "r2": 0.574,
+              "mae": 3.9,
+              "status": "warn",
+              "desc": "SelectKBest (Filter) k=2"
+            },
+            {
+              "k": 3,
+              "features": [
+                "lstat",
+                "rm",
+                "ptratio"
+              ],
+              "rmse": 5.21,
+              "r2": 0.6303,
+              "mae": 3.33,
+              "status": "warn",
+              "desc": "SelectKBest (Filter) k=3"
+            },
+            {
+              "k": 4,
+              "features": [
+                "lstat",
+                "rm",
+                "ptratio",
+                "indus"
+              ],
+              "rmse": 5.22,
+              "r2": 0.6284,
+              "mae": 3.35,
+              "status": "warn",
+              "desc": "SelectKBest (Filter) k=4"
+            },
+            {
+              "k": 5,
+              "features": [
+                "lstat",
+                "rm",
+                "ptratio",
+                "indus",
+                "tax"
+              ],
+              "rmse": 5.28,
+              "r2": 0.6197,
+              "mae": 3.34,
+              "status": "warn",
+              "desc": "SelectKBest (Filter) k=5"
+            },
+            {
+              "k": 6,
+              "features": [
+                "lstat",
+                "rm",
+                "ptratio",
+                "indus",
+                "tax",
+                "nox"
+              ],
+              "rmse": 5.27,
+              "r2": 0.621,
+              "mae": 3.35,
+              "status": "warn",
+              "desc": "SelectKBest (Filter) k=6"
+            },
+            {
+              "k": 7,
+              "features": [
+                "lstat",
+                "rm",
+                "ptratio",
+                "indus",
+                "tax",
+                "nox",
+                "rad"
+              ],
+              "rmse": 5.09,
+              "r2": 0.647,
+              "mae": 3.19,
+              "status": "warn",
+              "desc": "SelectKBest (Filter) k=7"
+            },
+            {
+              "k": 8,
+              "features": [
+                "lstat",
+                "rm",
+                "ptratio",
+                "indus",
+                "tax",
+                "nox",
+                "rad",
+                "crim"
+              ],
+              "rmse": 5.11,
+              "r2": 0.6442,
+              "mae": 3.23,
+              "status": "warn",
+              "desc": "SelectKBest (Filter) k=8"
+            },
+            {
+              "k": 9,
+              "features": [
+                "lstat",
+                "rm",
+                "ptratio",
+                "indus",
+                "tax",
+                "nox",
+                "rad",
+                "crim",
+                "age"
+              ],
+              "rmse": 5.06,
+              "r2": 0.6511,
+              "mae": 3.21,
+              "status": "good",
+              "desc": "SelectKBest (Filter) k=9"
+            },
+            {
+              "k": 10,
+              "features": [
+                "lstat",
+                "rm",
+                "ptratio",
+                "indus",
+                "tax",
+                "nox",
+                "rad",
+                "crim",
+                "age",
+                "b"
+              ],
+              "rmse": 5.22,
+              "r2": 0.6288,
+              "mae": 3.28,
+              "status": "warn",
+              "desc": "SelectKBest (Filter) k=10"
+            },
+            {
+              "k": 11,
+              "features": [
+                "lstat",
+                "rm",
+                "ptratio",
+                "indus",
+                "tax",
+                "nox",
+                "rad",
+                "crim",
+                "age",
+                "b",
+                "zn"
+              ],
+              "rmse": 5.27,
+              "r2": 0.6211,
+              "mae": 3.34,
+              "status": "warn",
+              "desc": "SelectKBest (Filter) k=11"
+            },
+            {
+              "k": 12,
+              "features": [
+                "lstat",
+                "rm",
+                "ptratio",
+                "indus",
+                "tax",
+                "nox",
+                "rad",
+                "crim",
+                "age",
+                "b",
+                "zn",
+                "dis"
+              ],
+              "rmse": 4.96,
+              "r2": 0.6641,
+              "mae": 3.24,
+              "status": "good",
+              "desc": "SelectKBest (Filter) k=12"
+            },
+            {
+              "k": 13,
+              "features": [
+                "lstat",
+                "rm",
+                "ptratio",
+                "indus",
+                "tax",
+                "nox",
+                "rad",
+                "crim",
+                "age",
+                "b",
+                "zn",
+                "dis",
+                "chas"
+              ],
+              "rmse": 4.93,
+              "r2": 0.6688,
+              "mae": 3.19,
+              "status": "good",
+              "desc": "SelectKBest (Filter) k=13"
+            }
+          ]
+        },
+        "VIF": {
+          "name": "VIF (Collinearity Diagnostic)",
+          "color": "#f43f5e",
+          "pointStyle": "crossRot",
+          "data": [
+            {
+              "k": 1,
+              "features": [
+                "b"
+              ],
+              "rmse": 8.27,
+              "r2": 0.0684,
+              "mae": 5.99,
+              "status": "poor",
+              "desc": "VIF (Collinearity Diagnostic) k=1"
+            },
+            {
+              "k": 2,
+              "features": [
+                "chas",
+                "b"
+              ],
+              "rmse": 8.28,
+              "r2": 0.0656,
+              "mae": 5.93,
+              "status": "poor",
+              "desc": "VIF (Collinearity Diagnostic) k=2"
+            },
+            {
+              "k": 3,
+              "features": [
+                "chas",
+                "rm",
+                "b"
+              ],
+              "rmse": 6.61,
+              "r2": 0.4049,
+              "mae": 4.18,
+              "status": "poor",
+              "desc": "VIF (Collinearity Diagnostic) k=3"
+            },
+            {
+              "k": 4,
+              "features": [
+                "chas",
+                "rm",
+                "age",
+                "b"
+              ],
+              "rmse": 6.25,
+              "r2": 0.468,
+              "mae": 3.84,
+              "status": "poor",
+              "desc": "VIF (Collinearity Diagnostic) k=4"
+            },
+            {
+              "k": 5,
+              "features": [
+                "chas",
+                "rm",
+                "age",
+                "ptratio",
+                "b"
+              ],
+              "rmse": 5.85,
+              "r2": 0.5332,
+              "mae": 3.4,
+              "status": "warn",
+              "desc": "VIF (Collinearity Diagnostic) k=5"
+            },
+            {
+              "k": 6,
+              "features": [
+                "crim",
+                "chas",
+                "rm",
+                "age",
+                "ptratio",
+                "b"
+              ],
+              "rmse": 5.85,
+              "r2": 0.5328,
+              "mae": 3.44,
+              "status": "warn",
+              "desc": "VIF (Collinearity Diagnostic) k=6"
+            },
+            {
+              "k": 7,
+              "features": [
+                "crim",
+                "zn",
+                "chas",
+                "rm",
+                "age",
+                "ptratio",
+                "b"
+              ],
+              "rmse": 5.93,
+              "r2": 0.52,
+              "mae": 3.54,
+              "status": "warn",
+              "desc": "VIF (Collinearity Diagnostic) k=7"
+            },
+            {
+              "k": 8,
+              "features": [
+                "crim",
+                "zn",
+                "chas",
+                "rm",
+                "age",
+                "rad",
+                "ptratio",
+                "b"
+              ],
+              "rmse": 5.92,
+              "r2": 0.5214,
+              "mae": 3.54,
+              "status": "warn",
+              "desc": "VIF (Collinearity Diagnostic) k=8"
+            },
+            {
+              "k": 9,
+              "features": [
+                "crim",
+                "zn",
+                "indus",
+                "chas",
+                "rm",
+                "age",
+                "rad",
+                "ptratio",
+                "b"
+              ],
+              "rmse": 5.88,
+              "r2": 0.5282,
+              "mae": 3.53,
+              "status": "warn",
+              "desc": "VIF (Collinearity Diagnostic) k=9"
+            },
+            {
+              "k": 10,
+              "features": [
+                "crim",
+                "zn",
+                "indus",
+                "chas",
+                "rm",
+                "age",
+                "rad",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 5.4,
+              "r2": 0.6021,
+              "mae": 3.34,
+              "status": "warn",
+              "desc": "VIF (Collinearity Diagnostic) k=10"
+            },
+            {
+              "k": 11,
+              "features": [
+                "crim",
+                "zn",
+                "indus",
+                "chas",
+                "rm",
+                "age",
+                "dis",
+                "rad",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 5.15,
+              "r2": 0.6382,
+              "mae": 3.23,
+              "status": "warn",
+              "desc": "VIF (Collinearity Diagnostic) k=11"
+            },
+            {
+              "k": 12,
+              "features": [
+                "crim",
+                "zn",
+                "indus",
+                "chas",
+                "nox",
+                "rm",
+                "age",
+                "dis",
+                "rad",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 5.04,
+              "r2": 0.6536,
+              "mae": 3.29,
+              "status": "good",
+              "desc": "VIF (Collinearity Diagnostic) k=12"
+            },
+            {
+              "k": 13,
+              "features": [
+                "crim",
+                "zn",
+                "indus",
+                "chas",
+                "nox",
+                "rm",
+                "age",
+                "dis",
+                "rad",
+                "tax",
+                "ptratio",
+                "b",
+                "lstat"
+              ],
+              "rmse": 4.93,
+              "r2": 0.6688,
+              "mae": 3.19,
+              "status": "good",
+              "desc": "VIF (Collinearity Diagnostic) k=13"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

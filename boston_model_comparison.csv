@@ -1,0 +1,183 @@
+RandomState,Algorithm,k,Selected Features,RMSE,R2,MAE
+0,Lasso (L1 Ranking),1,lstat,6.807077593213252,0.43095672846187605,4.864010561669802
+0,Lasso (L1 Ranking),2,"lstat, dis",6.5815924144121585,0.4680315721572508,4.7451589882459615
+0,Lasso (L1 Ranking),3,"lstat, dis, rm",5.972254405996392,0.5619733952798753,4.077613874811499
+0,Lasso (L1 Ranking),4,"lstat, dis, rm, ptratio",6.254981930954972,0.5195192317657988,4.296018145121818
+0,Lasso (L1 Ranking),5,"lstat, dis, rm, ptratio, rad",6.35083101650453,0.5046809804430111,4.307219253423217
+0,Lasso (L1 Ranking),6,"lstat, dis, rm, ptratio, rad, nox",6.131813989872868,0.5382553903824807,4.210264737273158
+0,Lasso (L1 Ranking),7,"lstat, dis, rm, ptratio, rad, nox, tax",6.056769010190579,0.5494884678445251,4.1174367110797805
+0,Lasso (L1 Ranking),8,"lstat, dis, rm, ptratio, rad, nox, tax, zn",6.016157744326474,0.5555096668731943,4.041815722526412
+0,Lasso (L1 Ranking),9,"lstat, dis, rm, ptratio, rad, nox, tax, zn, crim",5.9362955383790394,0.5672322210156715,3.9486955460662916
+0,Lasso (L1 Ranking),10,"lstat, dis, rm, ptratio, rad, nox, tax, zn, crim, b",5.851638529994949,0.5794875367843901,3.8409835184616044
+0,Lasso (L1 Ranking),11,"lstat, dis, rm, ptratio, rad, nox, tax, zn, crim, b, chas",5.781366335656951,0.5895267416134614,3.8429345178597565
+0,Lasso (L1 Ranking),12,"lstat, dis, rm, ptratio, rad, nox, tax, zn, crim, b, chas, age",5.784640655018183,0.5890616608498118,3.8450680550695164
+0,Lasso (L1 Ranking),13,"lstat, dis, rm, ptratio, rad, nox, tax, zn, crim, b, chas, age, indus",5.783509315085141,0.58922238491825,3.842909220444501
+0,Forward SFS,1,lstat,6.807077593213252,0.43095672846187605,4.864010561669802
+0,Forward SFS,2,"ptratio, lstat",7.17519842588719,0.3677458017865485,5.1367091986231115
+0,Forward SFS,3,"rm, ptratio, lstat",6.4558492951909,0.48816420156925067,4.404434993909257
+0,Forward SFS,4,"rm, ptratio, b, lstat",6.383582201486898,0.49955909516866237,4.221488097196144
+0,Forward SFS,5,"rm, dis, ptratio, b, lstat",6.1286785867953615,0.5387274808044452,4.081459223244211
+0,Forward SFS,6,"nox, rm, dis, ptratio, b, lstat",6.054896782711174,0.5497669429544507,4.04035244440806
+0,Forward SFS,7,"chas, nox, rm, dis, ptratio, b, lstat",5.972874179128173,0.5618824777842433,4.035038956807175
+0,Forward SFS,8,"crim, chas, nox, rm, dis, ptratio, b, lstat",6.01564990064877,0.5555847054900984,4.0077973936394
+0,Forward SFS,9,"crim, zn, chas, nox, rm, dis, ptratio, b, lstat",5.958154744147882,0.5640391936258748,3.956743883587237
+0,Forward SFS,10,"crim, zn, indus, chas, nox, rm, dis, ptratio, b, lstat",5.970670686837237,0.562205675789041,3.9637905508905336
+0,Forward SFS,11,"crim, zn, indus, chas, nox, rm, dis, rad, ptratio, b, lstat",5.858314146969097,0.5785275385361444,3.953045344030583
+0,Forward SFS,12,"crim, zn, indus, chas, nox, rm, dis, rad, tax, ptratio, b, lstat",5.780222921822183,0.5896890888383526,3.8406626699076947
+0,Forward SFS,13,"crim, zn, indus, chas, nox, rm, age, dis, rad, tax, ptratio, b, lstat",5.783509315085138,0.5892223849182503,3.842909220444503
+0,RFE,1,lstat,6.807077593213252,0.43095672846187605,4.864010561669802
+0,RFE,2,"rm, lstat",6.114172522817781,0.5409084827186418,4.142444656238561
+0,RFE,3,"rm, ptratio, lstat",6.4558492951909,0.48816420156925067,4.404434993909257
+0,RFE,4,"rm, dis, ptratio, lstat",6.254981930954972,0.519519231765799,4.296018145121818
+0,RFE,5,"nox, rm, dis, ptratio, lstat",6.151729011721198,0.5352511939362531,4.20834250482511
+0,RFE,6,"nox, rm, dis, tax, ptratio, lstat",6.182363615756168,0.5306109226977709,4.17929478283528
+0,RFE,7,"nox, rm, dis, rad, tax, ptratio, lstat",6.056769010190558,0.5494884678445282,4.117436711079784
+0,RFE,8,"zn, nox, rm, dis, rad, tax, ptratio, lstat",6.016157744326423,0.5555096668732016,4.041815722526392
+0,RFE,9,"crim, zn, nox, rm, dis, rad, tax, ptratio, lstat",5.936295538379031,0.5672322210156728,3.9486955460662876
+0,RFE,10,"crim, zn, nox, rm, dis, rad, tax, ptratio, b, lstat",5.851638529994954,0.5794875367843894,3.840983518461612
+0,RFE,11,"crim, zn, chas, nox, rm, dis, rad, tax, ptratio, b, lstat",5.781366335656941,0.5895267416134631,3.842934517859742
+0,RFE,12,"crim, zn, chas, nox, rm, age, dis, rad, tax, ptratio, b, lstat",5.784640655018171,0.5890616608498136,3.845068055069514
+0,RFE,13,"crim, zn, indus, chas, nox, rm, age, dis, rad, tax, ptratio, b, lstat",5.783509315085138,0.5892223849182503,3.842909220444503
+0,ElasticNet Ranking,1,lstat,6.807077593213252,0.43095672846187605,4.864010561669802
+0,ElasticNet Ranking,2,"lstat, dis",6.5815924144121585,0.4680315721572508,4.7451589882459615
+0,ElasticNet Ranking,3,"lstat, dis, rm",5.972254405996392,0.5619733952798753,4.077613874811499
+0,ElasticNet Ranking,4,"lstat, dis, rm, ptratio",6.254981930954972,0.5195192317657988,4.296018145121818
+0,ElasticNet Ranking,5,"lstat, dis, rm, ptratio, rad",6.35083101650453,0.5046809804430111,4.307219253423217
+0,ElasticNet Ranking,6,"lstat, dis, rm, ptratio, rad, nox",6.131813989872868,0.5382553903824807,4.210264737273158
+0,ElasticNet Ranking,7,"lstat, dis, rm, ptratio, rad, nox, tax",6.056769010190579,0.5494884678445251,4.1174367110797805
+0,ElasticNet Ranking,8,"lstat, dis, rm, ptratio, rad, nox, tax, zn",6.016157744326474,0.5555096668731943,4.041815722526412
+0,ElasticNet Ranking,9,"lstat, dis, rm, ptratio, rad, nox, tax, zn, crim",5.9362955383790394,0.5672322210156715,3.9486955460662916
+0,ElasticNet Ranking,10,"lstat, dis, rm, ptratio, rad, nox, tax, zn, crim, b",5.851638529994949,0.5794875367843901,3.8409835184616044
+0,ElasticNet Ranking,11,"lstat, dis, rm, ptratio, rad, nox, tax, zn, crim, b, chas",5.781366335656951,0.5895267416134614,3.8429345178597565
+0,ElasticNet Ranking,12,"lstat, dis, rm, ptratio, rad, nox, tax, zn, crim, b, chas, age",5.784640655018183,0.5890616608498118,3.8450680550695164
+0,ElasticNet Ranking,13,"lstat, dis, rm, ptratio, rad, nox, tax, zn, crim, b, chas, age, indus",5.783509315085141,0.58922238491825,3.842909220444501
+0,Exhaustive Search,1,lstat,6.807077593213252,0.43095672846187605,4.864010561669802
+0,Exhaustive Search,2,"ptratio, lstat",7.17519842588719,0.3677458017865485,5.1367091986231115
+0,Exhaustive Search,3,"rm, ptratio, lstat",6.4558492951909,0.48816420156925067,4.404434993909257
+0,Exhaustive Search,4,"rm, ptratio, b, lstat",6.383582201486898,0.49955909516866237,4.221488097196144
+0,Exhaustive Search,5,"rm, nox, dis, lstat, ptratio",6.151729011721196,0.5352511939362532,4.208342504825107
+0,Exhaustive Search,6,"rm, nox, dis, lstat, b, ptratio",6.054896782711193,0.5497669429544478,4.040352444408055
+0,Exhaustive Search,7,"rm, chas, nox, dis, lstat, b, ptratio",5.972874179128167,0.561882477784244,4.03503895680716
+0,Exhaustive Search,8,"tax, rm, nox, dis, crim, lstat, rad, ptratio",5.990655038932289,0.5592701001157108,4.040144526109884
+0,Exhaustive Search,9,"tax, rm, nox, dis, crim, lstat, rad, b, ptratio",5.906011982111828,0.5716364216888268,3.9321273136008674
+0,Exhaustive Search,10,"tax, rm, zn, nox, dis, crim, lstat, rad, b, ptratio",5.851638529994963,0.5794875367843881,3.84098351846162
+0,Exhaustive Search,11,"crim, zn, chas, nox, rm, dis, rad, tax, ptratio, b, lstat",5.781366335656941,0.5895267416134631,3.842934517859742
+0,Exhaustive Search,12,"crim, zn, indus, chas, nox, rm, dis, rad, tax, ptratio, b, lstat",5.780222921822183,0.5896890888383526,3.8406626699076947
+0,Exhaustive Search,13,"crim, zn, indus, chas, nox, rm, age, dis, rad, tax, ptratio, b, lstat",5.783509315085138,0.5892223849182503,3.842909220444503
+0,SelectKBest (Filter),1,lstat,6.807077593213252,0.43095672846187605,4.864010561669802
+0,SelectKBest (Filter),2,"lstat, rm",6.114172522817781,0.5409084827186417,4.1424446562385615
+0,SelectKBest (Filter),3,"lstat, rm, ptratio",6.455849295190898,0.4881642015692508,4.404434993909256
+0,SelectKBest (Filter),4,"lstat, rm, ptratio, indus",6.478994236164017,0.4844876458906855,4.411875366969689
+0,SelectKBest (Filter),5,"lstat, rm, ptratio, indus, tax",6.534925116599491,0.4755487545684165,4.387631127636061
+0,SelectKBest (Filter),6,"lstat, rm, ptratio, indus, tax, nox",6.530845465526414,0.47620336351818937,4.394500711473929
+0,SelectKBest (Filter),7,"lstat, rm, ptratio, indus, tax, nox, rad",6.3703664260232635,0.501629051602529,4.284415410679966
+0,SelectKBest (Filter),8,"lstat, rm, ptratio, indus, tax, nox, rad, age",6.306158868770474,0.5116246837552365,4.32128454812173
+0,SelectKBest (Filter),9,"lstat, rm, ptratio, indus, tax, nox, rad, age, crim",6.268019717791266,0.5175141309935392,4.231129876100476
+0,SelectKBest (Filter),10,"lstat, rm, ptratio, indus, tax, nox, rad, age, crim, zn",6.269129956763263,0.5173431927767834,4.22682495976023
+0,SelectKBest (Filter),11,"lstat, rm, ptratio, indus, tax, nox, rad, age, crim, zn, b",6.194453872766528,0.5287732489546602,4.124379865890176
+0,SelectKBest (Filter),12,"lstat, rm, ptratio, indus, tax, nox, rad, age, crim, zn, b, dis",5.849124083786691,0.5798488471389407,3.8394651658745294
+0,SelectKBest (Filter),13,"lstat, rm, ptratio, indus, tax, nox, rad, age, crim, zn, b, dis, chas",5.783509315085159,0.5892223849182474,3.8429092204445205
+0,VIF (Collinearity Diagnostic),1,b,8.817757992365587,0.04513881258583419,6.087835774984442
+0,VIF (Collinearity Diagnostic),2,"chas, b",8.638564749444,0.08355358655949274,6.059501981756017
+0,VIF (Collinearity Diagnostic),3,"chas, ptratio, b",8.871958408323668,0.03336417956887283,6.362807425481386
+0,VIF (Collinearity Diagnostic),4,"chas, age, ptratio, b",8.919700534911115,0.02293279167473805,6.348683542577612
+0,VIF (Collinearity Diagnostic),5,"chas, rm, age, ptratio, b",6.892428722387043,0.4165972694493911,4.349040302321614
+0,VIF (Collinearity Diagnostic),6,"crim, chas, rm, age, ptratio, b",7.063473517235363,0.3872821497811285,4.5014919801988285
+0,VIF (Collinearity Diagnostic),7,"crim, zn, chas, rm, age, ptratio, b",7.063254171428284,0.3873202032980808,4.500385707361472
+0,VIF (Collinearity Diagnostic),8,"crim, zn, indus, chas, rm, age, ptratio, b",7.056161559407568,0.38855003821683565,4.501131043275938
+0,VIF (Collinearity Diagnostic),9,"crim, zn, indus, chas, rm, age, rad, ptratio, b",7.032574011411328,0.3926311520182484,4.4946439423495175
+0,VIF (Collinearity Diagnostic),10,"crim, zn, indus, chas, rm, age, rad, ptratio, b, lstat",6.3092960012897805,0.5111386575686283,4.244803916836403
+0,VIF (Collinearity Diagnostic),11,"crim, zn, indus, chas, rm, age, dis, rad, ptratio, b, lstat",6.068119779284066,0.5477983112540381,4.0399371836332705
+0,VIF (Collinearity Diagnostic),12,"crim, zn, indus, chas, nox, rm, age, dis, rad, ptratio, b, lstat",5.862116888163062,0.5779801896440153,3.9528873361338275
+0,VIF (Collinearity Diagnostic),13,"crim, zn, indus, chas, nox, rm, age, dis, rad, tax, ptratio, b, lstat",5.783509315085138,0.5892223849182503,3.842909220444503
+42,Lasso (L1 Ranking),1,lstat,5.789606996393182,0.5429180422970384,4.184807930623362
+42,Lasso (L1 Ranking),2,"lstat, rm",5.589569804715174,0.5739577415025858,3.898759721382358
+42,Lasso (L1 Ranking),3,"lstat, rm, dis",5.591613093092339,0.573646201853689,3.9077816817597117
+42,Lasso (L1 Ranking),4,"lstat, rm, dis, rad",5.69289813686203,0.5580605854489447,3.896126238181847
+42,Lasso (L1 Ranking),5,"lstat, rm, dis, rad, ptratio",5.248519448289315,0.6243619896324211,3.35890484422523
+42,Lasso (L1 Ranking),6,"lstat, rm, dis, rad, ptratio, nox",5.001957349727501,0.6588260382831341,3.2689105750132557
+42,Lasso (L1 Ranking),7,"lstat, rm, dis, rad, ptratio, nox, tax",4.899540050044205,0.672654380185103,3.16522972204588
+42,Lasso (L1 Ranking),8,"lstat, rm, dis, rad, ptratio, nox, tax, b",5.052261115674056,0.6519292844179561,3.26847228740072
+42,Lasso (L1 Ranking),9,"lstat, rm, dis, rad, ptratio, nox, tax, b, crim",5.076343986769114,0.648603042670389,3.302180203400065
+42,Lasso (L1 Ranking),10,"lstat, rm, dis, rad, ptratio, nox, tax, b, crim, chas",5.049773519493322,0.6522719611720128,3.2656420568051114
+42,Lasso (L1 Ranking),11,"lstat, rm, dis, rad, ptratio, nox, tax, b, crim, chas, zn",4.907998359203131,0.6715231799608885,3.149694285529647
+42,Lasso (L1 Ranking),12,"lstat, rm, dis, rad, ptratio, nox, tax, b, crim, chas, zn, indus",4.917703495184429,0.6702228274016861,3.176587970762993
+42,Lasso (L1 Ranking),13,"lstat, rm, dis, rad, ptratio, nox, tax, b, crim, chas, zn, indus, age",4.928602182665328,0.6687594935356331,3.1890919658878443
+42,Forward SFS,1,lstat,5.789606996393182,0.5429180422970384,4.184807930623362
+42,Forward SFS,2,"rm, lstat",5.589569804715174,0.5739577415025859,3.898759721382357
+42,Forward SFS,3,"rm, ptratio, lstat",5.2072024557895356,0.6302528487272829,3.3325380783240957
+42,Forward SFS,4,"rm, ptratio, b, lstat",5.367825083848817,0.6070904174164297,3.400749036921656
+42,Forward SFS,5,"rm, dis, ptratio, b, lstat",5.374532960326922,0.6061078087504295,3.4317494502126875
+42,Forward SFS,6,"nox, rm, dis, ptratio, b, lstat",5.228983954832521,0.6271531070459022,3.4129034008790997
+42,Forward SFS,7,"crim, nox, rm, dis, ptratio, b, lstat",5.296185717159334,0.6175080305168453,3.4547993951654905
+42,Forward SFS,8,"crim, nox, rm, dis, rad, ptratio, b, lstat",5.183312248055155,0.6336378037104358,3.400709310997406
+42,Forward SFS,9,"crim, nox, rm, dis, rad, tax, ptratio, b, lstat",5.076343986769158,0.648603042670383,3.302180203400095
+42,Forward SFS,10,"crim, zn, nox, rm, dis, rad, tax, ptratio, b, lstat",4.939218460752954,0.6673309632791165,3.185480705738707
+42,Forward SFS,11,"crim, zn, chas, nox, rm, dis, rad, tax, ptratio, b, lstat",4.9079983592031144,0.6715231799608907,3.1496942855296504
+42,Forward SFS,12,"crim, zn, chas, nox, rm, age, dis, rad, tax, ptratio, b, lstat",4.917893816537907,0.6701973013192728,3.1621066937292035
+42,Forward SFS,13,"crim, zn, indus, chas, nox, rm, age, dis, rad, tax, ptratio, b, lstat",4.928602182665339,0.6687594935356317,3.1890919658878416
+42,RFE,1,lstat,5.789606996393182,0.5429180422970384,4.184807930623362
+42,RFE,2,"rm, lstat",5.589569804715174,0.5739577415025859,3.898759721382357
+42,RFE,3,"rm, ptratio, lstat",5.2072024557895356,0.6302528487272829,3.3325380783240957
+42,RFE,4,"rm, dis, ptratio, lstat",5.175138547496572,0.634792344924661,3.3396261567351475
+42,RFE,5,"nox, rm, dis, ptratio, lstat",5.019723085624438,0.656398200522893,3.2721352283630982
+42,RFE,6,"nox, rm, dis, tax, ptratio, lstat",5.053149053584487,0.6518069263940951,3.2752465667328625
+42,RFE,7,"nox, rm, dis, rad, tax, ptratio, lstat",4.899540050044177,0.6726543801851068,3.165229722045872
+42,RFE,8,"nox, rm, dis, rad, tax, ptratio, b, lstat",5.0522611156740815,0.6519292844179525,3.268472287400755
+42,RFE,9,"crim, nox, rm, dis, rad, tax, ptratio, b, lstat",5.076343986769158,0.648603042670383,3.302180203400095
+42,RFE,10,"crim, chas, nox, rm, dis, rad, tax, ptratio, b, lstat",5.049773519493394,0.6522719611720029,3.265642056805194
+42,RFE,11,"crim, zn, chas, nox, rm, dis, rad, tax, ptratio, b, lstat",4.9079983592031144,0.6715231799608907,3.1496942855296504
+42,RFE,12,"crim, zn, indus, chas, nox, rm, dis, rad, tax, ptratio, b, lstat",4.917703495184446,0.6702228274016838,3.1765879707629883
+42,RFE,13,"crim, zn, indus, chas, nox, rm, age, dis, rad, tax, ptratio, b, lstat",4.928602182665339,0.6687594935356317,3.1890919658878416
+42,ElasticNet Ranking,1,lstat,5.789606996393182,0.5429180422970384,4.184807930623362
+42,ElasticNet Ranking,2,"lstat, rm",5.589569804715174,0.5739577415025858,3.898759721382358
+42,ElasticNet Ranking,3,"lstat, rm, dis",5.591613093092339,0.573646201853689,3.9077816817597117
+42,ElasticNet Ranking,4,"lstat, rm, dis, ptratio",5.175138547496575,0.6347923449246606,3.3396261567351466
+42,ElasticNet Ranking,5,"lstat, rm, dis, ptratio, rad",5.248519448289316,0.6243619896324211,3.3589048442252296
+42,ElasticNet Ranking,6,"lstat, rm, dis, ptratio, rad, nox",5.0019573497275,0.6588260382831342,3.268910575013257
+42,ElasticNet Ranking,7,"lstat, rm, dis, ptratio, rad, nox, tax",4.899540050044198,0.6726543801851039,3.165229722045874
+42,ElasticNet Ranking,8,"lstat, rm, dis, ptratio, rad, nox, tax, b",5.052261115674061,0.6519292844179554,3.2684722874007344
+42,ElasticNet Ranking,9,"lstat, rm, dis, ptratio, rad, nox, tax, b, crim",5.07634398676913,0.6486030426703868,3.302180203400083
+42,ElasticNet Ranking,10,"lstat, rm, dis, ptratio, rad, nox, tax, b, crim, chas",5.049773519493354,0.6522719611720085,3.2656420568051336
+42,ElasticNet Ranking,11,"lstat, rm, dis, ptratio, rad, nox, tax, b, crim, chas, zn",4.907998359203079,0.6715231799608955,3.1496942855296286
+42,ElasticNet Ranking,12,"lstat, rm, dis, ptratio, rad, nox, tax, b, crim, chas, zn, age",4.917893816537923,0.6701973013192707,3.1621066937292506
+42,ElasticNet Ranking,13,"lstat, rm, dis, ptratio, rad, nox, tax, b, crim, chas, zn, age, indus",4.928602182665339,0.6687594935356317,3.189091965887851
+42,Exhaustive Search,1,lstat,5.789606996393182,0.5429180422970384,4.184807930623362
+42,Exhaustive Search,2,"rm, lstat",5.589569804715174,0.5739577415025859,3.898759721382357
+42,Exhaustive Search,3,"rm, ptratio, lstat",5.2072024557895356,0.6302528487272829,3.3325380783240957
+42,Exhaustive Search,4,"rm, ptratio, b, lstat",5.367825083848817,0.6070904174164297,3.400749036921656
+42,Exhaustive Search,5,"rm, dis, lstat, b, ptratio",5.374532960326923,0.6061078087504292,3.431749450212687
+42,Exhaustive Search,6,"rm, nox, dis, lstat, b, ptratio",5.228983954832569,0.6271531070458954,3.412903400879113
+42,Exhaustive Search,7,"rm, nox, dis, crim, lstat, b, ptratio",5.296185717159355,0.6175080305168423,3.454799395165507
+42,Exhaustive Search,8,"rm, nox, dis, crim, lstat, rad, b, ptratio",5.183312248055139,0.633637803710438,3.4007093109973976
+42,Exhaustive Search,9,"tax, rm, nox, dis, crim, lstat, rad, b, ptratio",5.07634398676914,0.6486030426703855,3.3021802034000878
+42,Exhaustive Search,10,"tax, rm, zn, nox, dis, crim, lstat, rad, b, ptratio",4.9392184607528655,0.6673309632791284,3.1854807057386063
+42,Exhaustive Search,11,"crim, zn, chas, nox, rm, dis, rad, tax, ptratio, b, lstat",4.9079983592031144,0.6715231799608907,3.1496942855296504
+42,Exhaustive Search,12,"crim, zn, chas, nox, rm, age, dis, rad, tax, ptratio, b, lstat",4.917893816537907,0.6701973013192728,3.1621066937292035
+42,Exhaustive Search,13,"crim, zn, indus, chas, nox, rm, age, dis, rad, tax, ptratio, b, lstat",4.928602182665339,0.6687594935356317,3.1890919658878416
+42,SelectKBest (Filter),1,lstat,5.789606996393182,0.5429180422970384,4.184807930623362
+42,SelectKBest (Filter),2,"lstat, rm",5.589569804715174,0.5739577415025858,3.898759721382358
+42,SelectKBest (Filter),3,"lstat, rm, ptratio",5.207202455789537,0.6302528487272826,3.3325380783240965
+42,SelectKBest (Filter),4,"lstat, rm, ptratio, indus",5.220087893560873,0.628420675407839,3.3529287079256807
+42,SelectKBest (Filter),5,"lstat, rm, ptratio, indus, tax",5.281208043853635,0.6196683547405641,3.3357265551811977
+42,SelectKBest (Filter),6,"lstat, rm, ptratio, indus, tax, nox",5.2722685565155345,0.6209548378098433,3.354337919292543
+42,SelectKBest (Filter),7,"lstat, rm, ptratio, indus, tax, nox, rad",5.088104895731672,0.6469729186973722,3.192314304310703
+42,SelectKBest (Filter),8,"lstat, rm, ptratio, indus, tax, nox, rad, crim",5.107992004694589,0.6442078780664813,3.2283256311828383
+42,SelectKBest (Filter),9,"lstat, rm, ptratio, indus, tax, nox, rad, crim, age",5.058180952149095,0.6511131235552196,3.20920302917566
+42,SelectKBest (Filter),10,"lstat, rm, ptratio, indus, tax, nox, rad, crim, age, b",5.217335910904527,0.6288123585864365,3.28327378725252
+42,SelectKBest (Filter),11,"lstat, rm, ptratio, indus, tax, nox, rad, crim, age, b, zn",5.271005771775792,0.6211363896861399,3.3356989051132535
+42,SelectKBest (Filter),12,"lstat, rm, ptratio, indus, tax, nox, rad, crim, age, b, zn, dis",4.963405499893615,0.6640648675861154,3.237242361814456
+42,SelectKBest (Filter),13,"lstat, rm, ptratio, indus, tax, nox, rad, crim, age, b, zn, dis, chas",4.928602182665334,0.6687594935356322,3.1890919658878287
+42,VIF (Collinearity Diagnostic),1,b,8.26543477843835,0.06840464063797058,5.993907798072553
+42,VIF (Collinearity Diagnostic),2,"chas, b",8.278046694779853,0.0655594989400261,5.925330080200202
+42,VIF (Collinearity Diagnostic),3,"chas, rm, b",6.605989710590685,0.40492501305945416,4.182243485706764
+42,VIF (Collinearity Diagnostic),4,"chas, rm, age, b",6.246248851529454,0.4679720173451748,3.8383734671855385
+42,VIF (Collinearity Diagnostic),5,"chas, rm, age, ptratio, b",5.850843382559235,0.5331978412678084,3.4010085747334915
+42,VIF (Collinearity Diagnostic),6,"crim, chas, rm, age, ptratio, b",5.853096502307506,0.5328382474087338,3.438336267221501
+42,VIF (Collinearity Diagnostic),7,"crim, zn, chas, rm, age, ptratio, b",5.933006993625153,0.5199951445372841,3.5443304707799723
+42,VIF (Collinearity Diagnostic),8,"crim, zn, chas, rm, age, rad, ptratio, b",5.924536320649074,0.5213647912047049,3.544011137136987
+42,VIF (Collinearity Diagnostic),9,"crim, zn, indus, chas, rm, age, rad, ptratio, b",5.882053421337196,0.5282044514760004,3.525425871594591
+42,VIF (Collinearity Diagnostic),10,"crim, zn, indus, chas, rm, age, rad, ptratio, b, lstat",5.401926291679774,0.6020823363640486,3.3395163100870486
+42,VIF (Collinearity Diagnostic),11,"crim, zn, indus, chas, rm, age, dis, rad, ptratio, b, lstat",5.150848075054111,0.638212638855876,3.232039992021606
+42,VIF (Collinearity Diagnostic),12,"crim, zn, indus, chas, nox, rm, age, dis, rad, ptratio, b, lstat",5.039931253792277,0.653626119527742,3.2909990596212624
+42,VIF (Collinearity Diagnostic),13,"crim, zn, indus, chas, nox, rm, age, dis, rad, tax, ptratio, b, lstat",4.928602182665339,0.6687594935356317,3.1890919658878416
